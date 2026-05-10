@@ -1,102 +1,121 @@
 # Chapter 5 — Integration
+*The Geometry of Accumulation, and the Theorem That Unlocked It.*
 
-## 5.1 Opening: The cyclist who didn't know how far she'd ridden
+A cyclist rides for an hour. Her speedometer works perfectly — she can read her speed at any instant. At the end of the ride, she wants to know how far she went.
 
-A cyclist rides for an hour. Her speedometer shows the speed at every instant — she watches it climb to 22 mph at the start, stay near 18 mph for most of the ride, ease to 12 mph on a hill, drop briefly to 8 mph at a stoplight, accelerate back up. At the end of the hour she wants to know: *how far did I ride?*
+If she had ridden at a constant speed, the answer would be trivial: distance equals speed times time. But her speed varied. It climbed early, settled near 18 mph for a long stretch, dropped on a hill, paused at a light, climbed again. There is no single number to multiply by the hour. The answer is not a multiplication problem. It is something else.
 
-The speed varied continuously. There is no single number to multiply by the time. If she had ridden at a constant 18 mph, distance would be 18 miles. If she had ridden at 12 mph, 12 miles. Her actual ride was somewhere between, and the answer depends on how long she spent at each speed.
+Here is the strategy she might use without knowing any calculus. Divide the hour into sixty one-minute intervals. In each minute, her speed didn't change much — treat it as constant within that minute. Compute the distance for each minute: speed at that minute times one-sixtieth of an hour. Add up sixty numbers. You have an approximation to the actual distance.
 
-The strategy. Slice the hour into many small intervals — say, sixty intervals of one minute each. In each minute, the speed didn't change much; treat it as approximately constant. Distance in that minute ≈ speed at that minute × (1/60 hour). Add up the sixty contributions. The total is an *approximation* to the actual distance ridden.
+Now divide the hour into 600 intervals of six seconds each. Better approximation. Divide into 6000 intervals of one second each. Better still. There is a pattern here: as the intervals get smaller, the estimate gets more accurate. The *exact* distance is what this process approaches in the limit, as the interval width shrinks to zero.
 
-Now make the slices smaller. Slice the hour into 600 intervals of six seconds each. Within six seconds the speed is even more nearly constant. The approximation gets better. Slice into 6000 intervals of one second. Better still. The *limit* of these approximations as the slice width shrinks to zero is the actual distance ridden over the hour.
-
-This is *integration*. The answer to the cyclist's question is
+That limiting process has a name and a notation. The exact distance is
 
 $$\text{distance} = \int_0^1 v(t) \, dt$$
 
-— the *definite integral* of velocity over the time interval. The sliced-and-summed approach is the *Riemann sum*; its limit as slices shrink is the integral.
+The symbol on the right is the *definite integral* of the velocity function $v(t)$ over the interval from $t = 0$ to $t = 1$. The sliced-and-summed process is a *Riemann sum*; the definite integral is its limit.
 
-By the end of this chapter, you should be able to:
+This is what integration is. Not a formula. Not a trick. A limit of sums — the same idea from Chapter 2, applied to accumulation rather than to instantaneous rates.
 
-- *Compute* a definite integral as the limit of a Riemann sum.
-- *Apply* the Fundamental Theorem of Calculus to evaluate definite integrals via antiderivatives.
-- *Find* indefinite integrals using the basic antidifferentiation formulas.
-- *Apply* substitution to integrate compositions.
-- *Distinguish* the definite integral (a number) from the indefinite integral (a function).
-- *Recognize* the connection between integration and accumulation, and between integration and area.
+---
 
-You walk in with derivatives and antiderivatives from Chapters 3 and 4. You walk out with the second great operation of calculus and the theorem that ties it to the first.
+## The machinery of Riemann sums
 
-## 5.2 The Riemann sum and the definite integral
+Let $f$ be a function defined on an interval $[a, b]$. Slice the interval into $n$ equal pieces of width
 
-Slice an interval $[a, b]$ into $n$ subintervals of equal width $\Delta x = (b - a)/n$. Pick a sample point $x_i^*$ in each subinterval. Approximate the area under a curve $y = f(x)$ by the sum of rectangle areas:
+$$\Delta x = \frac{b - a}{n}$$
+
+In each piece, pick any representative point $x_i^*$ — the left end, the right end, the midpoint, it doesn't matter for what follows. Form the sum
 
 $$S_n = \sum_{i=1}^n f(x_i^*) \, \Delta x$$
 
-This is a *Riemann sum*. As $n \to \infty$ (and $\Delta x \to 0$), the rectangles get thinner and the approximation tightens. If the limit exists and is the same regardless of how the sample points were chosen, we call it the *definite integral* of $f$ from $a$ to $b$:
+Each term is a rectangle: height $f(x_i^*)$, width $\Delta x$. The sum approximates the area under the curve — or, in the cyclist's case, the total distance traveled.
+
+As $n \to \infty$ and $\Delta x \to 0$, the rectangles multiply and thin. If the limit exists and doesn't depend on which representative points were chosen, we call it the definite integral:
 
 $$\int_a^b f(x) \, dx = \lim_{n \to \infty} \sum_{i=1}^n f(x_i^*) \, \Delta x$$
 
-The notation isn't accidental. The integral sign $\int$ is a stretched-out "S" for "sum"; the $dx$ replaces $\Delta x$ to indicate the width has shrunk to a differential. The expression literally reads as "the limit of the sum of $f(x)$-times-$dx$ contributions."
+The notation is deliberate. The integral sign $\int$ is an elongated "S" — for sum. The $dx$ is the limit of $\Delta x$, a differential sliver of width. Reading the expression aloud: "the sum of $f(x)$-times-$dx$ contributions from $a$ to $b$, as $dx$ shrinks to zero." The symbolism carries the construction inside itself.
 
-Three sample-point conventions are common:
-- *Left endpoint*: $x_i^* = a + (i-1)\Delta x$.
-- *Right endpoint*: $x_i^* = a + i \Delta x$.
-- *Midpoint*: $x_i^* = a + (i - 1/2)\Delta x$.
+A quick computation to see what these sums do. Estimate $\int_0^4 x^2 \, dx$ using four rectangles with the right-endpoint rule.
 
-For a continuous function, all three converge to the same integral; the choice affects the rate of convergence and the sign of the error at finite $n$.
-
-A worked example. Estimate $\int_0^4 x^2 \, dx$ using $n = 4$ subintervals with the right-endpoint rule.
-
-$\Delta x = 4/4 = 1$. Right endpoints: $x = 1, 2, 3, 4$. Values: $f(1) = 1$, $f(2) = 4$, $f(3) = 9$, $f(4) = 16$.
+$\Delta x = 1$. Right endpoints: $x = 1, 2, 3, 4$. Function values: $1, 4, 9, 16$.
 
 $$S_4 = (1 + 4 + 9 + 16)(1) = 30$$
 
-The actual integral, computed by methods we develop below, is $\int_0^4 x^2 \, dx = 64/3 \approx 21.33$. The right-endpoint estimate of 30 overestimates because $x^2$ is increasing on the interval and the right endpoints are the highest points of each subinterval. With more subintervals (larger $n$), the estimate would converge.
+The exact answer — which we'll compute properly in a moment — is $64/3 \approx 21.33$. The four-rectangle estimate of 30 overestimates badly, because $x^2$ is increasing and the right endpoints are the highest points in each slice. With more rectangles, the estimate closes in on $21.33$ from above.
 
-A function is *Riemann integrable* on $[a, b]$ if the limit defining the integral exists. Continuous functions are integrable. Functions with finitely many jump discontinuities are integrable. Pathological functions can fail.
+<!-- → [IMAGE: side-by-side panels showing Riemann sum convergence for ∫₀⁴ x² dx — left panel: n=4 right-endpoint rectangles sitting above the parabola curve, with total shaded area visibly larger than the area under the curve; right panel: n=20 right-endpoint rectangles, noticeably tighter fit; label S₄ = 30 and exact = 64/3 ≈ 21.33 on the respective panels — student should see that the rectangles shrink toward the curve as n grows] -->
 
-## 5.3 The Fundamental Theorem of Calculus
+Any continuous function is Riemann integrable — the limit exists for any sequence of sampling choices. Functions with finitely many jumps are also integrable. This is a theorem, not obvious, and it matters because it guarantees the integral exists before we try to compute it.
 
-The integral defined as a limit of Riemann sums is conceptually clean and computationally a nightmare. For all but the simplest functions, evaluating the limit directly is impractical. The breakthrough that makes integration tractable is a theorem so consequential it gets the modifier "Fundamental":
+---
 
-*Fundamental Theorem of Calculus, Part 1*. If $f$ is continuous on $[a, b]$, define
+## Why this is hard, and why there's a shortcut
+
+Computing a definite integral directly from the Riemann-sum definition is, for all but the simplest functions, a combinatorial nightmare. For $\int_0^4 x^2 \, dx$ you can do it — you'd need the closed-form formula for $\sum_{i=1}^n i^2$ and then take a limit — but for $\int_0^1 \sin(x^2) \, dx$ there is no algebraic route through the sum. The definition is intellectually clean and computationally impractical.
+
+The shortcut came with the discovery that integration and differentiation are inverse operations. This is so surprising, and so consequential, that it is called the *Fundamental Theorem of Calculus*.
+
+Here is why it's surprising. The derivative is a *local* concept. It asks how fast a function is changing at a single point — a rate, an instantaneous slope. The integral is a *global* concept. It asks how much has accumulated over an entire interval — a running total across all the slices. These don't obviously have anything to do with each other.
+
+And yet.
+
+Define a function $F$ by
 
 $$F(x) = \int_a^x f(t) \, dt$$
 
-Then $F$ is differentiable on $(a, b)$, and $F'(x) = f(x)$.
+$F(x)$ is the accumulation of $f$ from $a$ up to $x$ — a running total. Ask what happens when $x$ increases by a tiny amount $h$:
 
-In words: differentiation undoes integration. The function $F$ that accumulates $f$ from $a$ up to $x$ has $f$ as its derivative.
+$$F(x + h) - F(x) = \int_x^{x+h} f(t) \, dt \approx f(x) \cdot h$$
 
-*Fundamental Theorem of Calculus, Part 2*. If $f$ is continuous on $[a, b]$ and $F$ is *any* antiderivative of $f$ — that is, $F'(x) = f(x)$ — then
+The right side approximation improves as $h \to 0$, because $f$ is nearly constant over a tiny interval. Divide both sides by $h$ and take the limit:
+
+$$F'(x) = \lim_{h \to 0} \frac{F(x+h) - F(x)}{h} = f(x)$$
+
+The running total's instantaneous rate of change is exactly $f(x)$. Differentiating the accumulation recovers what was being accumulated.
+
+This is the Fundamental Theorem, Part 1. Differentiation undoes integration.
+
+<!-- → [IMAGE: diagram illustrating FTC Part 1 — plot a positive curve f(t) above the t-axis; shade the area under f from a to x in one color to represent F(x); shade the thin additional strip from x to x+h in a contrasting color to represent F(x+h) − F(x); label the strip width as h and its height as approximately f(x); show the equation F(x+h) − F(x) ≈ f(x)·h beneath — student should see that the derivative of the accumulated area is the height of the curve at the leading edge] -->
+
+---
+
+## The Fundamental Theorem and why it works
+
+Part 2 is the computational engine.
+
+*FTC Part 2*: If $f$ is continuous on $[a, b]$ and $F$ is any antiderivative of $f$ — meaning $F'(x) = f(x)$ — then
 
 $$\int_a^b f(x) \, dx = F(b) - F(a)$$
 
-This is the computational engine. To evaluate a definite integral, find an antiderivative and evaluate it at the endpoints. The Riemann-sum limit is the definition; the antiderivative is the way to compute.
+The proof is almost immediate from Part 1. Let $G(x) = \int_a^x f(t) \, dt$ be the specific accumulation function. By Part 1, $G'(x) = f(x)$. If $F$ is any other antiderivative of $f$, then $F'(x) = G'(x)$, so $F$ and $G$ differ by a constant: $F(x) = G(x) + C$. Then
 
-A worked example. Evaluate $\int_0^4 x^2 \, dx$.
+$$F(b) - F(a) = [G(b) + C] - [G(a) + C] = G(b) - G(a) = \int_a^b f(t) \, dt$$
 
-An antiderivative of $x^2$ is $F(x) = x^3/3$. By FTC Part 2:
+The constant cancels. Any antiderivative works; the choice doesn't affect $F(b) - F(a)$.
+
+Apply it to the integral we estimated. Find an antiderivative of $x^2$: by the power rule in reverse, $F(x) = x^3/3$. Check: $F'(x) = 3x^2/3 = x^2$. Then
 
 $$\int_0^4 x^2 \, dx = F(4) - F(0) = \frac{64}{3} - 0 = \frac{64}{3}$$
 
-The Riemann-sum limit gives the same answer; the antiderivative is faster.
+That's the $21.33$ the Riemann sums were converging toward. No sum, no limit calculation, no combinatorics. Just antidifferentiate and evaluate at the endpoints.
 
-The notation $F(b) - F(a)$ is sometimes written $F(x) \big|_a^b$ or $[F(x)]_a^b$ — read "F of x evaluated from a to b" — to compress.
+The FTC turns a problem in approximation and limits into a problem in finding antiderivatives. That is the trade it makes: effortless computation for anything with a known antiderivative, silence on everything without one.
 
-Why is this theorem so big? Because it connects two operations that *look* different. Integration is accumulation (limit of Riemann sums). Differentiation is rate of change (limit of difference quotients). The FTC says they are inverses. Knowing one solves the other.
+<!-- → [INFOGRAPHIC: two-column diagram contrasting the two routes to ∫₀⁴ x² dx — left column labeled "Definition (Riemann sum)": shows the sum formula, requires knowing Σi² = n(n+1)(2n+1)/6, shows limit calculation, arrives at 64/3; right column labeled "FTC (antiderivative)": shows F(x) = x³/3, evaluates F(4) − F(0) = 64/3 − 0 in two steps — the visual argument is that both columns reach the same answer, but the right column is dramatically shorter] -->
 
-The trade-off in the FTC: it buys *practical computability* at the cost of *requiring an antiderivative to be available*. For many functions, antiderivatives don't have a closed form — $\int e^{-x^2} dx$ has no elementary antiderivative, despite the function being smooth and well-behaved. For those, numerical methods or special-function tables fill the gap.
+---
 
-## 5.4 The indefinite integral and the basic antiderivatives
+## The indefinite integral and the basic antiderivatives
 
-The *indefinite integral* of $f$:
+When you want the antiderivative of $f$ without specifying limits, you write the *indefinite integral*:
 
 $$\int f(x) \, dx = F(x) + C$$
 
-where $F$ is any antiderivative and $C$ is the constant of integration. The indefinite integral is a *family of functions*, one for each value of $C$.
+The $+ C$ is not decoration. It is the whole family of antiderivatives. Since any constant differentiates to zero, any function of the form $F(x) + C$ is a valid antiderivative. The indefinite integral is a family, not a single function.
 
-The basic antiderivatives, recovered by reversing the derivative formulas of Chapter 3:
+The basic antiderivatives come from reversing the derivative formulas:
 
 $$\int x^n \, dx = \frac{x^{n+1}}{n+1} + C \quad (n \neq -1)$$
 
@@ -104,184 +123,144 @@ $$\int x^{-1} \, dx = \ln|x| + C$$
 
 $$\int e^x \, dx = e^x + C$$
 
-$$\int b^x \, dx = \frac{b^x}{\ln b} + C$$
-
 $$\int \cos x \, dx = \sin x + C$$
 
 $$\int \sin x \, dx = -\cos x + C$$
 
-$$\int \sec^2 x \, dx = \tan x + C$$
-
-$$\int \frac{1}{\sqrt{1 - x^2}} \, dx = \arcsin x + C$$
-
 $$\int \frac{1}{1 + x^2} \, dx = \arctan x + C$$
 
-The integration analogs of the linearity of differentiation:
+Each formula is a derivative formula run backwards. The power rule gives $\frac{d}{dx}[x^{n+1}/(n+1)] = x^n$; flip it to get the antiderivative of $x^n$. The derivative of $\sin x$ is $\cos x$; flip it to get the antiderivative of $\cos x$.
 
-$$\int [c \cdot f(x)] \, dx = c \int f(x) \, dx$$
+Linearity carries over cleanly:
 
-$$\int [f(x) + g(x)] \, dx = \int f(x) \, dx + \int g(x) \, dx$$
+$$\int [c \cdot f(x) + d \cdot g(x)] \, dx = c \int f(x) \, dx + d \int g(x) \, dx$$
 
-Constant multiples and sums distribute through. The *product rule and quotient rule* of differentiation, however, do *not* have direct integration analogs — there is no formula like $\int [f(x)g(x)] \, dx = (\int f) \cdot (\int g)$. The integration of products is harder than the differentiation of products; *integration by parts* (in Chapter 7-style coverage of techniques) handles it, and the chain rule's integration analog is *substitution*, the next section's topic.
+<!-- → [TABLE: two-column reference card of basic antiderivatives — left column: integrand f(x); right column: antiderivative F(x) + C; rows: xⁿ (n≠−1) → xⁿ⁺¹/(n+1)+C; x⁻¹ → ln|x|+C; eˣ → eˣ+C; cos x → sin x+C; sin x → −cos x+C; 1/(1+x²) → arctan x+C — pair each row with the corresponding derivative rule it reverses, shown in a light third column, so the student sees the table as a mirror image of the derivative table from Chapter 3] -->
 
-## 5.5 Integration by substitution
+Constants factor out; sums split. What doesn't carry over is products. There is no formula like $\int f(x) g(x) \, dx = (\int f) \cdot (\int g)$. Products are genuinely harder to integrate than to differentiate — the product rule of differentiation has an integration analog, but it's called integration by parts and it belongs in the next chapter. For now, the rule to internalize is that you cannot distribute an integral across a product.
 
-The chain rule says $\frac{d}{dx}[F(g(x))] = F'(g(x)) \cdot g'(x)$. Read in reverse, this gives a method for integrating compositions:
+---
 
-$$\int F'(g(x)) \cdot g'(x) \, dx = F(g(x)) + C$$
+## Substitution: the chain rule in reverse
 
-Or, with $u = g(x)$ and $du = g'(x) \, dx$:
+Differentiation has a chain rule: $\frac{d}{dx}[F(g(x))] = F'(g(x)) \cdot g'(x)$.
 
-$$\int F'(u) \, du = F(u) + C$$
+Run it in reverse. If you see an integrand of the form $F'(g(x)) \cdot g'(x)$, you know the antiderivative is $F(g(x))$. The substitution method is how you see it.
 
-The substitution method: identify an inner function $u = g(x)$, compute $du = g'(x) \, dx$, and rewrite the integral in terms of $u$. If you've chosen $u$ well, the integral simplifies to a basic antiderivative.
+The procedure. Identify an inner function $u = g(x)$. Compute $du = g'(x) \, dx$. Rewrite the integral in terms of $u$. If the substitution was right, everything simplifies.
 
-A worked example. Compute $\int 2x \cos(x^2) \, dx$.
+Example: $\int 2x \cos(x^2) \, dx$.
 
 Let $u = x^2$. Then $du = 2x \, dx$. The integral becomes
 
 $$\int \cos u \, du = \sin u + C = \sin(x^2) + C$$
 
-Without substitution, this integral would have required either guessing the form of the antiderivative or appealing to integration by parts. With the right $u$, it collapses.
+Check by differentiating: $\frac{d}{dx}[\sin(x^2)] = \cos(x^2) \cdot 2x$. Correct.
 
-A second worked example with definite integration. Evaluate $\int_0^1 (3x^2 + 1)\sqrt{x^3 + x + 1} \, dx$.
+With definite integrals, substitution changes the limits too. Example: $\int_0^1 (3x^2 + 1)\sqrt{x^3 + x + 1} \, dx$.
 
-Let $u = x^3 + x + 1$. Then $du = (3x^2 + 1) dx$. When $x = 0$, $u = 1$; when $x = 1$, $u = 3$. The integral becomes
+Let $u = x^3 + x + 1$. Then $du = (3x^2 + 1) \, dx$. When $x = 0$: $u = 1$. When $x = 1$: $u = 3$.
 
-$$\int_1^3 \sqrt{u} \, du = \int_1^3 u^{1/2} \, du = \frac{2}{3} u^{3/2} \bigg|_1^3 = \frac{2}{3}(3^{3/2} - 1) = \frac{2}{3}(3\sqrt{3} - 1) \approx 2.797$$
+$$\int_1^3 \sqrt{u} \, du = \frac{2}{3} u^{3/2} \bigg|_1^3 = \frac{2}{3}(3\sqrt{3} - 1) \approx 2.80$$
 
-Notice the substitution changed *both* the integrand *and* the limits. When working with a definite integral and substitution, the limits in the original $x$-variable convert to the corresponding $u$-values; you don't need to back-substitute at the end.
+The limits converted from $x$-values to $u$-values. You don't substitute back at the end — when you change variables in a definite integral, you change everything, including the limits.
 
-The trade-off in substitution: it buys *integrability of compositions* at the cost of *requiring you to recognize the right inner function*. Substitution is the most-used integration technique; mastering it is most of what intro calculus students drill on.
+The substitution method's elegance is the same as the chain rule's: it handles an infinite family of compositions with a single pattern. Once you can recognize $g'(x) \, dx$ hiding in an integrand and identify the matching $u = g(x)$, an enormous range of integrals collapses to basic forms. The skill is in the recognition.
 
-## 5.6 Properties of the definite integral
+<!-- → [INFOGRAPHIC: step-by-step flowchart for u-substitution — box 1: "Identify inner function u = g(x)"; box 2: "Compute du = g′(x) dx"; box 3: "Rewrite integrand entirely in terms of u and du"; box 4a (indefinite): "Integrate in u, then back-substitute u = g(x)"; box 4b (definite): "Convert limits: x=a → u=g(a), x=b → u=g(b); integrate in u; do NOT back-substitute" — show the ∫ 2x cos(x²) dx example flowing through boxes 1–4a alongside the flowchart] -->
 
-Several properties of the definite integral follow from its definition as a Riemann-sum limit and are useful for breaking complicated integrals into manageable pieces.
+---
 
-*Linearity*. $\int_a^b [c \cdot f(x) + d \cdot g(x)] \, dx = c \int_a^b f(x) \, dx + d \int_a^b g(x) \, dx$.
+## What the integral is measuring
 
-*Additivity over intervals*. For $a \leq c \leq b$: $\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx$. The integral over a union is the sum of the integrals over the pieces.
+Before the FTC took over the calculations, it's worth being clear about what the integral measures — because the Riemann-sum definition says it geometrically, and the geometry is the source of all the applications.
 
-*Reversed limits*. $\int_a^b f(x) \, dx = -\int_b^a f(x) \, dx$. Reversing the order of integration flips the sign.
+When $f(x) \geq 0$ on $[a, b]$, the definite integral $\int_a^b f(x) \, dx$ is the area of the region bounded by the curve, the $x$-axis, and the vertical lines $x = a$ and $x = b$. Each rectangle in the Riemann sum is a slice of that area; the limit is the whole area. The integral is area.
 
-*Same endpoint*. $\int_a^a f(x) \, dx = 0$. An interval of zero width has zero accumulation.
+When $f$ dips below zero, the rectangles in the negative region have negative heights, and the integral counts negative area there — the net signed area, with regions above the axis positive and regions below negative. If you want the total geometric area (unsigned), you integrate $|f(x)|$ instead.
 
-*Comparison*. If $f(x) \leq g(x)$ on $[a, b]$, then $\int_a^b f(x) \, dx \leq \int_a^b g(x) \, dx$. Bigger integrand gives bigger integral.
+<!-- → [IMAGE: signed area diagram for a function that crosses the x-axis — plot a curve that is positive on [a, c] and negative on [c, b]; shade the positive region above the axis in one color labeled "+A₁"; shade the negative region below in a contrasting color labeled "−A₂"; show the equation ∫ₐᵇ f dx = A₁ − A₂ (net signed area) vs ∫ₐᵇ |f| dx = A₁ + A₂ (total geometric area); label which quantity the definite integral computes by default] -->
 
-*Bounding*. If $m \leq f(x) \leq M$ on $[a, b]$, then $m(b-a) \leq \int_a^b f(x) \, dx \leq M(b-a)$.
+When $f$ is velocity, the integral is displacement. When $f$ is a force, the integral against distance is work. When $f$ is a density (mass per unit length, charge per unit area), the integral is the total mass or charge. When $f$ is a rate of cash flow, the integral is total accumulated value. All of these are the same mathematical object seen in different physical contexts. The Riemann sum is always: break the quantity into small pieces, add them up, take the limit. The interpretation changes; the mathematics doesn't.
 
-These properties are the toolkit for manipulating integrals in proofs and in computation. The additivity property is particularly useful: a function defined piecewise (different formulas on different intervals) integrates piece-by-piece.
+There is a useful sanity check built into the units. The integral $\int_a^b f(x) \, dx$ has units equal to the units of $f$ multiplied by the units of $x$. Velocity in miles per hour integrated against time in hours gives miles. Force in newtons integrated against distance in meters gives joules. If the units don't multiply correctly, the setup is wrong.
 
-## 5.7 Synthesis: the cyclist, computed
+---
 
-Return to the cyclist of §5.1. Suppose her velocity over the hour follows
+## The theorem Newton and Leibniz both found
+
+Newton and Leibniz each arrived at the FTC independently in the 1670s and 1680s, and a bitter priority dispute followed — one of the nastier episodes in the history of mathematics, eventually leaving mathematics divided between British notation (Newton's fluxions, $\dot{x}$ for derivatives) and Continental notation (Leibniz's $dy/dx$ and $\int$). British mathematicians stubbornly used Newton's notation for over a century, cutting themselves off from the more flexible Leibniz formalism that the rest of Europe was developing. It was not until the early nineteenth century that British mathematicians, led by the Analytical Society at Cambridge, systematically adopted the Continental notation.
+
+What both Newton and Leibniz saw — what earlier mathematicians like Fermat, Cavalieri, and Barrow had separately developed methods for tangent slopes and for areas without connecting them — was that the two operations were inverses. That connection was the central achievement. The Riemann-sum definition of the integral came later, in the 1850s, when Bernhard Riemann put the foundations on firmer ground. Newton and Leibniz had both been working with the intuitive notion; Riemann made it precise.
+
+The philosophical content of the FTC is one of the great surprises in mathematics. The rate of change at a point — an infinitesimal, local concept — is the complete information needed to recover the accumulated total. Conversely, the accumulated total — a global integral over an entire interval — fully determines the rate at each instant. Local and global descriptions of a changing quantity are equivalent, interchangeable, two sides of one object.
+
+---
+
+## What integration cannot do
+
+It is important to be clear about what the FTC's machinery doesn't solve.
+
+Many functions have no elementary antiderivative. The Gaussian $e^{-x^2}$ is the most famous: it is smooth, it is positive, it has a perfectly well-defined integral over any interval, and it has absolutely no antiderivative expressible in terms of the functions taught in calculus — no combination of polynomials, exponentials, logarithms, and trigonometric functions will give $e^{-x^2}$ when differentiated. This is not a gap in anyone's knowledge; it has been proven, by Liouville in the 1830s, that no such expression exists. The definite integral $\int_{-\infty}^{\infty} e^{-x^2} \, dx$ does have an exact value — it equals $\sqrt{\pi}$, found by a clever trick in polar coordinates — but the indefinite integral defines a new function, the error function $\text{erf}(x)$, which cannot be reduced to more familiar ones.
+
+Similarly for $(\sin x)/x$, $e^x/x$, and many others. For these, numerical integration takes over: Riemann sums with many intervals, Simpson's rule, Gaussian quadrature. Each method approximates the integral to any desired precision without needing a closed-form antiderivative.
+
+The structural lesson is this: calculus did not give a method that always produces clean formulas. It gave a method that always produces *approximations to arbitrary precision*. For physics, for engineering, for probability, that is sufficient. For pure mathematics, the limits of elementary antidifferentiation motivated two centuries of new theory — complex analysis, special functions, real analysis — aimed at extending the catalog of integrable forms.
+
+---
+
+## Closing the loop: the cyclist, computed
+
+Return to the cyclist. Suppose her velocity is
 
 $$v(t) = 18 + 5\sin(2\pi t)$$
 
-mph, where $t$ is in hours from $0$ to $1$. The sinusoidal term models speed fluctuations around the average. The total distance ridden:
+in mph over one hour. The integral of velocity is distance:
 
-$$\text{distance} = \int_0^1 (18 + 5\sin(2\pi t)) \, dt$$
+$$\int_0^1 (18 + 5\sin(2\pi t)) \, dt = 18 \int_0^1 dt + 5 \int_0^1 \sin(2\pi t) \, dt$$
 
-By linearity:
+The first integral is $18 \cdot 1 = 18$. For the second, substituting $u = 2\pi t$:
 
-$$= 18 \int_0^1 dt + 5 \int_0^1 \sin(2\pi t) \, dt$$
+$$\int_0^1 \sin(2\pi t) \, dt = \left[-\frac{\cos(2\pi t)}{2\pi}\right]_0^1 = -\frac{1}{2\pi} + \frac{1}{2\pi} = 0$$
 
-$$= 18 \cdot 1 + 5 \cdot \left[-\frac{\cos(2\pi t)}{2\pi}\right]_0^1$$
+Total distance: 18 miles. The sinusoidal fluctuation contributed nothing — the time spent above 18 mph exactly offset the time spent below, because sine averages to zero over a full period. The fluctuation was real; its net effect on distance was not.
 
-$$= 18 + 5 \cdot \left[-\frac{1}{2\pi} + \frac{1}{2\pi}\right]$$
-
-$$= 18 + 0 = 18 \text{ miles}$$
-
-The sinusoidal fluctuation contributed zero net distance — the time spent above 18 mph exactly cancels the time spent below, since sine has zero average over a full period. The 18 mph average gave the answer regardless of the fluctuation.
-
-Now suppose the velocity profile is more realistic: a hill in the middle of the hour drops the cyclist's speed temporarily.
+Now make the problem harder. Suppose the hill in the middle of the ride drops her speed:
 
 $$v(t) = 18 - 6 e^{-100(t - 0.5)^2}$$
 
-The exponential bump centered at $t = 0.5$ drops velocity by up to 6 mph at the midpoint of the ride, recovering quickly on either side. The total distance:
+The exponential term models a sharp, temporary dip centered at $t = 0.5$, falling up to 6 mph at the worst. The total distance is
 
-$$\int_0^1 \left[18 - 6 e^{-100(t-0.5)^2}\right] dt = 18 - 6 \int_0^1 e^{-100(t-0.5)^2} dt$$
+$$\int_0^1 v(t) \, dt = 18 - 6 \int_0^1 e^{-100(t - 0.5)^2} \, dt$$
 
-The remaining integral has *no elementary antiderivative* — it's the kind of integral the FTC's machinery alone cannot solve. Numerical integration (Simpson's rule, Gaussian quadrature, or just Riemann sums with many subintervals) gives the answer numerically. With $n = 100$ subintervals and the midpoint rule, the integral is approximately $0.177$, so the total distance is $18 - 6(0.177) \approx 16.94$ miles.
+The remaining integral has no elementary antiderivative — the Gaussian again, rescaled and shifted. Numerical integration with a modest number of subintervals gives approximately $0.177$, so the total distance is $18 - 6(0.177) \approx 16.94$ miles.
 
-This is the structural pattern. Every accumulated quantity — distance from velocity, velocity from acceleration, work from force, mass from density, present value from cash flow rate, total dose from infusion rate — is a definite integral. When a closed-form antiderivative exists, the FTC gives the answer exactly. When it doesn't, numerical integration approximates to whatever precision is needed.
+<!-- → [CHART: plot of the two cyclist velocity profiles on the same axes from t=0 to t=1 — curve 1: v(t) = 18 + 5sin(2πt), oscillating gently above and below 18 mph, labeled "sinusoidal profile — net area = 18 miles"; curve 2: v(t) = 18 − 6·exp(−100(t−0.5)²), showing a sharp Gaussian dip to ~12 mph centered at t=0.5, labeled "Gaussian hill profile — net area ≈ 16.94 miles"; shade the area under each curve to make the accumulated distance visually obvious; mark the dip's depth and location on curve 2] -->
 
-## 5.8 Exercises
+The FTC answered the first version exactly. It reduced the second version to a number we compute numerically. Both routes go through the same concept: the integral is accumulated velocity, the calculation method adapts to what's available.
 
-### Warm-up
+---
 
-1. **Use a Riemann sum with 4 right endpoints** to estimate $\int_0^2 x \, dx$. Compare with the exact answer of 2.
+## The one idea to carry forward
 
-2. **Compute** $\int (3x^2 - 2x + 5) \, dx$.
+The definite integral is a limit of sums. The FTC connects it to antiderivatives, making most integrals computable in practice. Substitution handles compositions. Linearity handles sums and constant multiples. Numerical methods handle everything without a closed-form antiderivative.
 
-3. **Evaluate** $\int_1^3 (2x + 1) \, dx$.
+But under all the technique is one idea: *integration is accumulation*. Break a quantity into pieces. Multiply the rate by the size of the piece. Add everything up. Take the limit as the pieces shrink. That is the integral — in physics, in geometry, in probability, in economics, in every field that has to sum up infinitely many infinitesimal contributions. The FTC is the shortcut. The Riemann sum is the meaning.
 
-### Application
+In the next chapter, this meaning gets applied: areas between curves, volumes, arc lengths, work, and every other accumulation problem the derivative-based framework of Chapters 3 and 4 left open. The strategy will always be the same: slice, integrate, evaluate.
 
-4. **Use substitution to compute:** (a) $\int 3x^2(x^3 + 1)^4 \, dx$; (b) $\int \cos(2x + 1) \, dx$; (c) $\int x e^{x^2} \, dx$.
+---
 
-5. **Evaluate the definite integrals:** (a) $\int_0^{\pi/2} \sin x \, dx$; (b) $\int_1^e \frac{1}{x} \, dx$; (c) $\int_{-1}^1 (x^3 + x) \, dx$.
+## LLM Exercises
 
-6. **The velocity of a particle is $v(t) = t^2 - 4$ ft/s** for $0 \leq t \leq 4$. Find the total distance traveled. (Be careful: the particle moves backward when $v < 0$.)
+The following exercises are designed for working interactively with an AI assistant. For each, the productive move is not to ask for the answer directly — it's to reason aloud, explain your thinking, and ask the AI to identify errors or push back on your reasoning.
 
-### Synthesis
+1. **Reconstruct the Riemann sum from scratch.** Without looking at the chapter, explain to the AI what a Riemann sum is, why the choice of sample point doesn't affect the final limit, and what it means for a function to be Riemann integrable. Ask it to challenge any step that relies on intuition rather than argument.
 
-7. **A function $f$ has $f(0) = 5$ and $f'(x) = 3x^2$.** Recover $f$ by integration.
+2. **Derive FTC Part 1 in your own words.** Walk through the argument that $F'(x) = f(x)$ where $F(x) = \int_a^x f(t) \, dt$. Don't copy the chapter's version — reconstruct the reasoning. Submit it to the AI and ask: "Where am I waving my hands? What would need to be made more rigorous?"
 
-8. **Use the FTC to compute** $\frac{d}{dx} \int_0^x \cos(t^2) \, dt$. Then compute $\frac{d}{dx} \int_0^{x^2} \cos(t^2) \, dt$.
+3. **Find the flaw in a wrong antiderivative.** Tell the AI you are computing $\int_0^1 x \cdot e^{x^2} dx$ and that you claim the answer is $\frac{1}{2}(e - 1)$. Ask it to check your work step by step. (It is correct — but work through the substitution yourself first before confirming.)
 
-### Challenge
+4. **Design a physical integral.** Pick any physical quantity that accumulates — heat dissipated, charge stored, money earned, fuel consumed — and describe it as a definite integral. Tell the AI your setup: what $f$ represents, what $x$ represents, what the limits are, what the units work out to. Ask it to verify the unit analysis and suggest one thing that could go wrong in the physical model.
 
-9. **Show that** $\int_0^a f(x) \, dx + \int_a^b f(x) \, dx = \int_0^b f(x) \, dx$ **for any continuous $f$ and any $a$ in $[0, b]$.** Sketch why this property is necessary for the integral to make sense as accumulation.
-
-10. **The cyclist's velocity is $v(t) = 18 - 6 e^{-100(t-0.5)^2}$ mph for $0 \leq t \leq 1$.** Use Riemann sums with $n = 10$ midpoints to estimate the total distance. Compare with the value of approximately 16.94 miles given in §5.7.
-
-## 5.9 Chapter summary
-
-You walked into this chapter with derivatives and antiderivatives. You walk out with the second great operation of calculus.
-
-The *definite integral* $\int_a^b f(x) \, dx$ is the limit of Riemann sums — accumulations of $f(x) \, dx$ contributions across the interval. It represents accumulation, area under a curve, and the inverse of differentiation.
-
-The *Fundamental Theorem of Calculus* connects the two operations: to compute a definite integral, find an antiderivative and evaluate at the endpoints. Differentiation and integration are inverse operations.
-
-The *indefinite integral* is the family of all antiderivatives. The basic antiderivatives reverse the basic derivatives.
-
-*Substitution* is the integration analog of the chain rule: identify an inner function $u = g(x)$, compute $du$, and rewrite. It's the most-used technique for handling compositions.
-
-The single most important idea: integration is *accumulation*. A definite integral sums up infinitely many infinitesimal contributions. The FTC reveals that this sum is computable using antiderivatives — making the abstract Riemann limit into a practical calculation.
-
-The common mistake to watch for: forgetting the constant of integration on indefinite integrals. The constant is part of the answer; omitting it is omitting the family of solutions and presenting only one specific antiderivative as if it were the unique answer.
-
-## 5.10 Why the FTC is so big — a closer reading
-
-The Fundamental Theorem of Calculus connects two operations that appear, on the surface, to have nothing to do with each other.
-
-The derivative is about *rates*. It asks how fast a function is changing at a single instant. Mechanically, it's the limit of an average rate of change as the interval shrinks. Physically, it's the slope of a tangent line, or the velocity at an instant of a moving object, or the marginal cost of producing one more unit. The derivative is *local* — it depends only on what the function does in an arbitrarily small neighborhood of the point.
-
-The integral is about *accumulation*. It asks how much of something has piled up over an interval. Mechanically, it's the limit of a Riemann sum of contributions across the interval. Physically, it's the area under a curve, or the total distance traveled given a velocity, or the total mass of an object given a density. The integral is *global* — it depends on everything the function does across the whole interval.
-
-The FTC says these are inverse operations. The function $F(x) = \int_a^x f(t) \, dt$, which accumulates $f$ from $a$ up to $x$, has the property that $F'(x) = f(x)$. Differentiating an accumulation recovers what was being accumulated. And conversely, integrating a derivative reconstructs the function (up to the constant): $\int_a^b F'(x) \, dx = F(b) - F(a)$.
-
-The conceptual content of this connection is enormous. It says that local rate information and global accumulation information are completely interchangeable. If you know the rate at every instant, you know the total — by integration. If you know the running total at every instant, you know the rate — by differentiation. Two different ways of describing change are *the same description* viewed from different angles.
-
-Newton and Leibniz, working independently in the 1670s and 1680s, both arrived at versions of this theorem. The bitter priority dispute that followed obscured for decades the fact that the underlying insight — the inverse relationship of differentiation and integration — was the central achievement of seventeenth-century mathematics. Earlier mathematicians (Fermat, Cavalieri, Wallis, Barrow) had each developed methods for tangent slopes and for areas, but they had not seen the connection between the two as a single theorem. Newton and Leibniz did.
-
-The structural lesson worth carrying forward: when two operations look unrelated but one shows up as the inverse of the other, look hard. Mathematics is full of such relationships, and they are typically the doors to deeper structure. Differentiation and integration are paired. Sums and differences are paired. Logarithms and exponentials are paired. Vectors and dual vectors. Each pairing is a fundamental theorem in waiting.
-
-## 5.11 The integral and physical units
-
-A practical note on dimensional analysis. The integral $\int_a^b f(x) \, dx$ has units of *(units of $f$) × (units of $x$)*. A velocity (mph) integrated against time (hours) gives miles. A force (newtons) integrated against distance (meters) gives joules of work. A density (kilograms per cubic meter) integrated against volume (cubic meters) gives kilograms of mass. The units come out right because the Riemann sum is multiplying $f(x_i^*)$ by $\Delta x$ — and the units of the product are the units of the integral.
-
-This is one of the simplest sanity checks on integration setups. If your integrand has units of meters and you're integrating against time in seconds, the result is in meter-seconds. If you wanted meters, your integrand should have been a velocity. The units catch errors before the algebra does.
-
-## 5.12 What integration cannot do (yet)
-
-Some integrals do not have closed-form antiderivatives. The Gaussian integrand $e^{-x^2}$, central to probability theory, is one. The error function $\text{erf}(x) = (2/\sqrt{\pi}) \int_0^x e^{-t^2} dt$ is *defined* as the integral because no elementary function has $e^{-t^2}$ as its derivative. Similarly, $\int (\sin x)/x \, dx$ has no closed form (it defines the *sine integral* $\text{Si}(x)$). $\int e^x / x \, dx$ defines the *exponential integral*. These are not failures of mathematicians' cleverness — they have been *proven* (by Liouville in the 1830s and more rigorously since) to have no antiderivative expressible in elementary functions.
-
-For these integrals, the FTC's promise of "find an antiderivative" doesn't deliver a usable formula. The recourses: numerical integration (Simpson's rule, Gaussian quadrature, Monte Carlo), special-function tables (the error function's values are tabulated and built into every modern computational library), or series expansions (integrate the Taylor series term-by-term and sum). Each approach trades exact closed form for some other property.
-
-The deeper lesson: calculus did not solve the integration problem in a way that always produces clean formulas. It solved it in a way that always produces *approximations to arbitrary precision*. For physics and engineering practice, the second is sufficient. For pure mathematics, the first matters and motivates whole subjects (real analysis, complex analysis, special-function theory) devoted to extending the catalog of integrable forms.
-
-## 5.13 Connections forward
-
-Chapter 6 puts the integral to work, the way Chapter 4 put the derivative to work. Areas between curves, volumes of solids of revolution, lengths of curves, surface areas, work done by a variable force, hydrostatic pressure, center of mass, present value of cash streams — every accumulation problem is an integration problem. The Riemann-sum perspective from §5.2 becomes the systematic strategy: slice the quantity into infinitesimal pieces, integrate, evaluate.
+5. **Explain why $e^{-x^2}$ has no elementary antiderivative — or try.** Attempt to explain Liouville's result in your own words: not the full proof, but the intuition for why this should be true. Ask the AI where your explanation is correct, where it oversimplifies, and what a rigorous statement of the result would actually say.
