@@ -247,3 +247,24 @@ The following exercises are designed to be worked with a large language model as
 **Exercise 5.** Run two iterations of Newton's method to solve $\cos x = x$ — find the fixed point where the function $f(x) = \cos x - x$ crosses zero. Start at $x_0 = 0.5$. Compute $x_1$ and $x_2$ by hand, then check your arithmetic with an LLM. Ask it to run two more iterations. How many decimal places are correct by $x_4$? Ask the LLM to explain geometrically what Newton's method is doing at each step.
 
 **Exercise 6.** Ask an LLM to sketch (describe in words) the graph of $f(x) = x^4 - 4x^3$ by analyzing its derivatives. Conduct the analysis yourself first: find $f'(x)$, identify critical points, determine sign changes; find $f''(x)$, identify inflection points, determine concavity. Then compare your analysis to the LLM's. Did it identify all critical points? Did it correctly determine whether each is a local max, local min, or inflection point? Did it find the right inflection point(s)?
+
+---
+
+## AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Pierre de Fermat** developed methods for finding tangent lines and optimization extrema in the 1630s — predating Newton and Leibniz by a generation. His "method of adequality" is, in modern eyes, the derivative test with a different vocabulary.
+
+**Run this:**
+
+```
+Who was Pierre de Fermat, and how does his method of adequality connect to the optimization applications of derivatives we covered in this chapter? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Pierre de Fermat"** on Wikipedia.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to find a maximum using Fermat's method on one specific function — and translate the steps into modern derivative notation.
+- Ask it about Fermat's day job as a magistrate, and how mathematics fit into a working lawyer's life.
+
+What changes? What gets better? What gets worse?

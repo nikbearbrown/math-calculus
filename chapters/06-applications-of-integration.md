@@ -273,3 +273,42 @@ The single most important idea: every quantity that accumulates continuously is 
 9. The profile of a vase is given by $r(y) = 2 + \sin(\pi y / 10)$ for $y \in [0, 10]$ cm, where $r$ is in centimeters. Write the integral for the interior volume and evaluate it. Does the sinusoidal bulge produce a noticeably different volume from a straight cylinder of the same height and average radius? Compute both and compare.
 
 10. The arc length formula $L = \int_a^b \sqrt{1 + [f'(x)]^2} \, dx$ looks like the Pythagorean theorem applied to each infinitesimal piece of the curve. Derive it from scratch: start from the length of the chord connecting $(x, f(x))$ to $(x + \Delta x, f(x + \Delta x))$, apply the Mean Value Theorem to relate $\Delta y$ to $f'$, and take the limit as $\Delta x \to 0$. What smoothness condition on $f'$ is required for the argument to go through, and what goes wrong at a corner?
+
+---
+
+## LLM Exercises
+
+The following exercises are designed to be worked with a large language model as a collaborative thinking partner — asking it to check your reasoning, generate similar problems, or explain a step you're stuck on. The goal is to think alongside the tool, not to have the tool think for you.
+
+**Exercise 1.** Ask an LLM to set up the integral for the area between $y = \sin x$ and $y = \cos x$ on $[0, \pi/2]$. Before reading its work, find the intersection point yourself ($x = \pi/4$), determine which function is on top in each sub-interval, and write the split integral. Compare. Did the LLM correctly handle the sign change at the intersection, or did it integrate $|\sin x - \cos x|$ as if it were always one expression?
+
+**Exercise 2.** Give an LLM the region bounded by $y = x^2$ and $y = 4x$ rotated around the $x$-axis, and ask for the volume using both the disk method and the shell method. Solve it yourself first using disks (washer method, since the rotation produces a hollow solid). Then check the LLM's shell-method setup — is the radius the correct distance from the axis, or did it confuse "distance from axis" with "value of $x$"? The two methods must agree; if the LLM's two answers don't match, find the error.
+
+**Exercise 3.** Ask an LLM to compute the arc length of $y = \cosh x$ from $x = 0$ to $x = 1$. The integrand simplifies cleanly because of the identity $1 + \sinh^2 x = \cosh^2 x$. Before seeing its work, derive this simplification yourself and integrate. Did the LLM apply the identity, or did it leave a complicated radical and try numerical integration? Both can land at the right answer; only one of them shows the structural reason it works.
+
+**Exercise 4.** Set up — with the LLM's help — the work integral for pumping water out of a *hemispherical* tank of radius 3 m through the top. The horizontal cross-section at depth $y$ below the top is a disk of radius $\sqrt{9 - y^2}$. Walk the LLM through the layer-by-layer setup: volume of layer = $\pi(9 - y^2)\,dy$, weight = $1000g\pi(9 - y^2)\,dy$, distance lifted = $y$. Did it correctly identify the distance each layer travels, or did it confuse "depth below top" with "height above bottom"? Set up the integral and evaluate.
+
+**Exercise 5.** Give an LLM the wine bottle from this chapter — interior radius profile $r(y)$ following the simplified three-piece model — and ask it to *recompute* the interior volume using Simpson's rule with 10 intervals. Compare to the analytical answer in the chapter. How close is the numerical approximation? Then ask: how many intervals would you need for Simpson's rule to be accurate to within 1 mL, and what does this say about the trade-off between analytical and numerical integration?
+
+**Exercise 6.** Tell an LLM that you want to find the centroid of the region bounded by $y = x^2$, $y = 0$, and $x = 1$. The centroid coordinates require integrals weighted by $x$ and by $y$ separately. Set up both integrals yourself before showing them. Compute. Compare to the LLM's answer. Then ask the LLM: what does the centroid represent physically, and why is it not generally located on the curve $y = x^2$ itself? The geometric interpretation is the point of the calculation; the algebra is the means.
+
+---
+
+## AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Émilie du Châtelet** translated Newton's *Principia* into French in the 1740s — adding her own commentary on the calculus of motion and area that introduced the concept of *kinetic energy* (mv²) into Continental physics. The work she did made Newton applicable to real engineering problems.
+
+**Run this:**
+
+```
+Who was Émilie du Châtelet, and how does her work translating and commenting on Newton's Principia connect to the applications of integration we covered in this chapter? Keep it to three paragraphs. End with the single most surprising thing about her career or ideas.
+```
+
+→ Search **"Émilie du Châtelet"** on Wikipedia.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to walk through one of du Châtelet's energy-from-motion arguments using the integration techniques you just learned.
+- Add a constraint: "Answer as du Châtelet's introductory note to her 1746 translation of Newton."
+
+What changes? What gets better? What gets worse?

@@ -229,3 +229,24 @@ The following exercises are designed for working interactively with an AI assist
 4. **IVT as detective work.** Give the AI a function and an interval and ask it to confirm whether the IVT applies. Then ask it: what could go wrong if the continuity condition were dropped? Push until you can construct a discontinuous function that crosses zero on an interval but has no root — and explain why it doesn't contradict the IVT.
 
 5. **Write an $\epsilon$-$\delta$ proof, narrated.** Attempt the proof that $\lim_{x \to 2}(5x - 3) = 7$. Write out every step with a sentence explaining what you're doing and why. Submit it to the AI and ask: "Where is the logic weakest? What would a grader mark down?"
+
+---
+
+## AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Augustin-Louis Cauchy** wrote *Cours d'Analyse* in 1821 — the textbook that put limits on rigorous footing for the first time, replacing Newton's and Leibniz's infinitesimals with an epsilon-delta framework. Modern calculus rigor begins with him.
+
+**Run this:**
+
+```
+Who was Augustin-Louis Cauchy, and how does his rigorous treatment of limits connect to the limit concepts we covered in this chapter? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Augustin-Louis Cauchy"** on Wikipedia.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to walk through one Cauchy epsilon-delta argument step by step on a specific limit.
+- Ask it about Cauchy's prolific output — over 800 papers — and the political exile that pushed him to Turin and Prague.
+
+What changes? What gets better? What gets worse?

@@ -235,3 +235,24 @@ The following exercises are designed to be worked with a large language model as
 **Exercise 5.** The Richter magnitude was described in this chapter as $M = \log_{10}(A/A_0)$. Ask an LLM to explain the pH scale (chemistry), the decibel scale (acoustics), and the apparent magnitude scale (astronomy) in the same terms — identifying what physical quantity is being logarithmically compressed, what the base is, and what the reference value represents. Then ask it to compute: how many times more intense is a sound at 90 dB than a sound at 60 dB?
 
 **Exercise 6.** Ask an LLM to help you find the inverse of $f(x) = (2x+3)/(x-1)$. Walk through the algebra yourself first — swap $x$ and $y$, isolate $y$ — then compare your steps to the LLM's. Verify the inverse by computing $f(f^{-1}(x))$ and checking that it simplifies to $x$. Ask the LLM to explain geometrically what it means that $f$ and $f^{-1}$ are reflections across $y = x$.
+
+---
+
+## AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Sophie Germain** taught herself calculus during the French Revolution by reading Lagrange and Euler — sometimes corresponding with Gauss under the male pseudonym M. Le Blanc. Her work on Fermat's Last Theorem and on elasticity theory earned her a Paris Academy prize that she could not receive in person because she was a woman.
+
+**Run this:**
+
+```
+Who was Sophie Germain, and how does her mathematical work connect to the functions and graphs we covered in this chapter? Keep it to three paragraphs. End with the single most surprising thing about her career or ideas.
+```
+
+→ Search **"Sophie Germain"** on Wikipedia.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to walk through one of Germain's results on elasticity — using the language of functions and graphs you just learned.
+- Ask it about Gauss's letter to Germain after he discovered she was a woman.
+
+What changes? What gets better? What gets worse?

@@ -264,3 +264,24 @@ The following exercises are designed for working interactively with an AI assist
 4. **Design a physical integral.** Pick any physical quantity that accumulates — heat dissipated, charge stored, money earned, fuel consumed — and describe it as a definite integral. Tell the AI your setup: what $f$ represents, what $x$ represents, what the limits are, what the units work out to. Ask it to verify the unit analysis and suggest one thing that could go wrong in the physical model.
 
 5. **Explain why $e^{-x^2}$ has no elementary antiderivative — or try.** Attempt to explain Liouville's result in your own words: not the full proof, but the intuition for why this should be true. Ask the AI where your explanation is correct, where it oversimplifies, and what a rigorous statement of the result would actually say.
+
+---
+
+## AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Bernhard Riemann** introduced the rigorous definition of the integral that bears his name in 1854 — partitioning intervals into smaller and smaller pieces and taking the limit of the sums. The Riemann sum you computed in this chapter is the foundation of every modern integration technique.
+
+**Run this:**
+
+```
+Who was Bernhard Riemann, and how does the Riemann integral connect to the integration concepts we covered in this chapter? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Bernhard Riemann"** on Wikipedia.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to compute a Riemann sum on one specific function by hand and compare it with the exact integral.
+- Ask it about Riemann's other contributions — Riemann surfaces, the Riemann zeta function, Riemannian geometry — and which one led to general relativity.
+
+What changes? What gets better? What gets worse?
