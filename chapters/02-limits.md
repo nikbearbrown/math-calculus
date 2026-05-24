@@ -11,7 +11,8 @@ where $c$ is the speed of light. Run the numbers. At ordinary speeds — even th
 
 The mass is growing. To accelerate the object further requires force proportional to its current mass, and the mass keeps rising as you push. More force, heavier object, more force needed — the cost of the next small increase in speed grows without bound as you approach $c$.
 
-<!-- → [CHART: curve of relativistic mass ratio m/m₀ vs. v/c from 0 to 0.9999c — x-axis labeled as fraction of c, y-axis as mass multiple of m₀ — student should see the curve is nearly flat until ~0.7c, then bends sharply upward, with the vertical asymptote at v = c clearly visible but unreachable] -->
+![Curve of relativistic mass ratio m/m₀ vs](images/02-limits-fig-01.png)
+*Figure 2.1 — Curve of relativistic mass ratio m/m₀ vs*
 
 Now ask what the formula says at $v = c$ exactly. The denominator becomes $\sqrt{1 - 1} = \sqrt{0} = 0$. Division by zero. The formula gives no value. There is no answer at $v = c$ — not "infinity" as a number, not anything. The formula simply breaks.
 
@@ -35,7 +36,8 @@ The function is heading toward 4 from both directions, clearly, consistently, un
 
 $$\lim_{x \to 2} \frac{x^2 - 4}{x - 2} = 4$$
 
-<!-- → [IMAGE: graph of f(x) = (x²−4)/(x−2) — plot the line y = x+2 with an open circle (hollow dot) at the point (2, 4), emphasizing that the function is defined everywhere on the line except exactly at x = 2; label the hole and the limit value L = 4 separately so the student sees they are different objects] -->
+![Graph of f(x) = (x²−4)/(x−2) ](images/02-limits-fig-02.png)
+*Figure 2.2 — Graph of f(x) = (x²−4)/(x−2) *
 
 The algebra confirms it. Factor the numerator: $x^2 - 4 = (x - 2)(x + 2)$. So
 
@@ -79,7 +81,8 @@ The third kind of failure: oscillation. The function $\sin(1/x)$ near $x = 0$ os
 
 These three failure modes — jump, blow-up, oscillation — cover most of what you encounter. When a limit fails, the question to ask is: which kind of failure is this?
 
-<!-- → [INFOGRAPHIC: three-panel side-by-side diagram of the three limit failure modes — panel 1: jump discontinuity (|x|/x), showing left and right arrows landing at different heights with gap labeled "sides disagree"; panel 2: blow-up (1/x), showing the curve shooting toward ±∞ with vertical asymptote labeled; panel 3: oscillation (sin(1/x)), showing increasingly rapid oscillation as x→0 with no settled value — each panel labels the failure type and the canonical example function] -->
+![Side-by-side diagram of the three limit failure modes](images/02-limits-fig-03.png)
+*Figure 2.3 — Side-by-side diagram of the three limit failure modes*
 
 ---
 
@@ -121,7 +124,8 @@ Both bounds approach 0 as $x \to 0$. The expression in the middle, whatever it's
 
 The squeeze theorem's elegance is that it never needs to look at the complicated function directly. You only need to bound it above and below by something tractable.
 
-<!-- → [IMAGE: graph illustrating the squeeze theorem for x²sin(1/x) — plot the three curves y = x², y = −x², and y = x²sin(1/x) on the same axes near x = 0; shade the region between the two parabolas; label the "squeezed" function and the two bounding functions; mark the shared limit at (0, 0) with a dot — student should immediately see that the oscillating function cannot escape the narrowing envelope] -->
+![Graph illustrating the squeeze theorem for x²sin(1/x) ](images/02-limits-fig-04.png)
+*Figure 2.4 — Graph illustrating the squeeze theorem for x²sin(1/x) *
 
 ---
 
@@ -139,7 +143,8 @@ A *jump discontinuity* is a genuine break: the one-sided limits exist but differ
 
 An *infinite discontinuity* is a blowup: the function grows without bound near the point. $1/x$ at $x = 0$.
 
-<!-- → [INFOGRAPHIC: three-panel comparison of discontinuity types — panel 1: removable discontinuity showing a continuous-looking curve with a single open hole and a separate filled dot nearby (or none), labeled "limit exists, value missing or mismatched — patchable"; panel 2: jump discontinuity showing two separate curve segments ending at different heights at the same x-value, labeled "one-sided limits exist but disagree — not patchable"; panel 3: infinite discontinuity showing a vertical asymptote with curves shooting to ±∞, labeled "function unbounded — not patchable"; include a small example function under each panel] -->
+![Comparison of discontinuity types ](images/02-limits-fig-05.png)
+*Figure 2.5 — Comparison of discontinuity types *
 
 Continuity is the condition that makes direct substitution valid as a limit-evaluation technique. When a function is continuous at $a$, $\lim_{x \to a} f(x) = f(a)$ by definition — that's what continuity means. So every time you substitute and compute a limit, you're implicitly invoking continuity. The first move in any limit problem — try substituting — is really asking whether the function is continuous at the target.
 
@@ -155,7 +160,8 @@ The *Intermediate Value Theorem* makes this precise. If $f$ is continuous on the
 
 The proof idea is topological — it follows from the completeness of the real line — but the content is geometric: a continuous graph can't get from height $f(a)$ to height $f(b)$ without drawing a connected curve, and a connected curve passes through every intermediate height.
 
-<!-- → [IMAGE: IVT diagram — plot a smooth continuous curve from point (a, f(a)) to point (b, f(b)) on a closed interval; draw a horizontal dashed line at height N (strictly between the two endpoint values); mark the intersection point c on the x-axis with a vertical dotted line; label f(a), f(b), N, a, b, and c clearly — the visual argument is that the curve must cross the horizontal line at least once, and the diagram should make this feel obvious without needing words] -->
+![IVT diagram ](images/02-limits-fig-06.png)
+*Figure 2.6 — IVT diagram *
 
 The practical consequence: if you can evaluate a function at two points and one value is negative and the other is positive, there must be a root somewhere between them. You don't know where. But it exists.
 
@@ -180,7 +186,8 @@ Parse the structure. $\epsilon$ is a tolerance on the output — how close to $L
 
 The condition $0 < |x - a|$ is the "$x$ but not equal to $a$" clause — limits are about behavior near $a$, not at $a$.
 
-<!-- → [IMAGE: ε-δ diagram — plot a generic smooth function f(x) near x = a; draw a horizontal band of width 2ε centered on L (the target output value) and a vertical band of width 2δ centered on a (the target input value); shade the region where both bands overlap; mark the point (a, L) with an open circle (since f(a) need not equal L); draw arrows showing that any x within distance δ of a (but not equal to a) maps to an f(x) within distance ε of L — the student should see the "tolerance game" visually: tighten ε, narrow δ to match] -->
+![Ε-δ diagram ](images/02-limits-fig-07.png)
+*Figure 2.7 — Ε-δ diagram *
 
 A worked proof. Show $\lim_{x \to 3}(2x + 1) = 7$.
 
@@ -250,3 +257,69 @@ Who was Augustin-Louis Cauchy, and how does his rigorous treatment of limits con
 - Ask it about Cauchy's prolific output — over 800 papers — and the political exile that pushed him to Turin and Prague.
 
 What changes? What gets better? What gets worse?
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 2.1 — Curve of relativistic mass ratio m/m₀ vs
+
+Create a standalone D3 v7 HTML file for Figure Curve of relativistic mass ratio m/m₀ vs. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: curve of relativistic mass ratio m/m₀ vs. v/c from 0 to 0.9999c — x-axis labeled as fraction of c, y-axis as mass multiple of m₀ — student should see the curve is nearly flat until ~0.7c, then bends sharply upward, with the vertical asymptote at v = c clearly visible but unreachable. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/02-limits-fig-01.html`
+
+---
+
+### Figure 2.2 — Graph of f(x) = (x²−4)/(x−2) 
+
+Create a standalone D3 v7 HTML file for Figure Graph of f(x) = (x²−4)/(x−2) . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: graph of f(x) = (x²−4)/(x−2) — plot the line y = x+2 with an open circle (hollow dot) at the point (2, 4), emphasizing that the function is defined everywhere on the line except exactly at x = 2; label the hole and the limit value L = 4 separately so the student sees they are different objects. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/02-limits-fig-02.html`
+
+---
+
+### Figure 2.3 — Side-by-side diagram of the three limit failure modes
+
+Create a standalone D3 v7 HTML file for Figure Side-by-side diagram of the three limit failure modes. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: three-panel side-by-side diagram of the three limit failure modes — panel 1: jump discontinuity (|x|/x), showing left and right arrows landing at different heights with gap labeled "sides disagree"; panel 2: blow-up (1/x), showing the curve shooting toward ±∞ with vertical asymptote labeled; panel 3: oscillation (sin(1/x)), showing increasingly rapid oscillation as x→0 with no settled value — each panel labels the failure type and the canonical example function. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/02-limits-fig-03.html`
+
+---
+
+### Figure 2.4 — Graph illustrating the squeeze theorem for x²sin(1/x) 
+
+Create a standalone D3 v7 HTML file for Figure Graph illustrating the squeeze theorem for x²sin(1/x) . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: graph illustrating the squeeze theorem for x²sin(1/x) — plot the three curves y = x², y = −x², and y = x²sin(1/x) on the same axes near x = 0; shade the region between the two parabolas; label the "squeezed" function and the two bounding functions; mark the shared limit at (0, 0) with a dot — student should immediately see that the oscillating function cannot escape the narrowing envelope. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/02-limits-fig-04.html`
+
+---
+
+### Figure 2.5 — Comparison of discontinuity types 
+
+Create a standalone D3 v7 HTML file for Figure Comparison of discontinuity types . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: three-panel comparison of discontinuity types — panel 1: removable discontinuity showing a continuous-looking curve with a single open hole and a separate filled dot nearby (or none), labeled "limit exists, value missing or mismatched — patchable"; panel 2: jump discontinuity showing two separate curve segments ending at different heights at the same x-value, labeled "one-sided limits exist but disagree — not patchable"; panel 3: infinite discontinuity showing a vertical asymptote with curves shooting to ±∞, labeled "function unbounded — not patchable"; include a small example function under each panel. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the 
+
+> Reference implementation: `d3/02-limits-fig-05.html`
+
+---
+
+### Figure 2.6 — IVT diagram 
+
+Create a standalone D3 v7 HTML file for Figure IVT diagram . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: IVT diagram — plot a smooth continuous curve from point (a, f(a)) to point (b, f(b)) on a closed interval; draw a horizontal dashed line at height N (strictly between the two endpoint values); mark the intersection point c on the x-axis with a vertical dotted line; label f(a), f(b), N, a, b, and c clearly — the visual argument is that the curve must cross the horizontal line at least once, and the diagram should make this feel obvious without needing words. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/02-limits-fig-06.html`
+
+---
+
+### Figure 2.7 — Ε-δ diagram 
+
+Create a standalone D3 v7 HTML file for Figure Ε-δ diagram . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: ε-δ diagram — plot a generic smooth function f(x) near x = a; draw a horizontal band of width 2ε centered on L (the target output value) and a vertical band of width 2δ centered on a (the target input value); shade the region where both bands overlap; mark the point (a, L) with an open circle (since f(a) need not equal L); draw arrows showing that any x within distance δ of a (but not equal to a) maps to an f(x) within distance ε of L — the student should see the "tolerance game" visually: tighten ε, narrow δ to match. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/02-limits-fig-07.html`

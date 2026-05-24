@@ -1,7 +1,8 @@
 # Chapter 4 — Applications of Derivatives
 *What the derivative is actually for — and why a camera operator is solving calculus problems with their wrists.*
 
-<!-- → [IMAGE: rocket-and-camera geometry — camera on the ground at horizontal distance D = 1000 ft from the pad, rocket at height h, angle θ labeled between the ground and the line of sight; the right triangle formed by D, h, and the hypotenuse clearly visible with tan θ = h/D labeled — student should see the static geometric setup that the chapter differentiates into a dynamic one] -->
+![Rocket-and-camera geometry ](images/04-applications-of-derivatives-fig-01.png)
+*Figure 4.1 — Rocket-and-camera geometry *
 
 A rocket lifts off. A camera operator on the ground tilts the lens upward to track it. Simple enough picture. But here's what's actually happening to that operator's hands.
 
@@ -17,7 +18,8 @@ $$\frac{d\theta}{dt} = \frac{100}{1000 \cdot 1.25} = 0.08 \text{ rad/s}$$
 
 About 4.6 degrees per second. At launch, when the rocket is barely off the pad and the angle is nearly flat, the rate is much faster — the camera sweeps quickly across the low part of the arc. High up, when the rocket is nearly overhead, the angle barely changes even though the rocket is screaming upward. The operator's job gets easier as the rocket climbs, not harder. That's the geometry of the inverse tangent. You only see it if you differentiate.
 
-<!-- → [CHART: line chart of dθ/dt (angular rate) on the y-axis vs. rocket height h on the x-axis, from h = 0 to h = 5000 ft, with D = 1000 ft fixed and dh/dt = 100 ft/s — student should see the angular rate is highest at launch and decays as h grows, making the counterintuitive point that tracking gets easier at high altitude despite greater speed] -->
+![Line chart of dθ/dt (angular rate) on the](images/04-applications-of-derivatives-fig-02.png)
+*Figure 4.2 — Line chart of dθ/dt (angular rate) on the*
 
 That's the flavor of this whole chapter. We know how to differentiate. Now we ask what derivatives are *for*.
 
@@ -43,7 +45,8 @@ $$2(5)(2) + 2(12)\frac{dy}{dt} = 0 \implies \frac{dy}{dt} = -\frac{5}{6} \text{ 
 
 The top is falling at 5/6 of a foot per second. The negative sign is the calculus's way of saying "downward."
 
-<!-- → [IMAGE: two-panel ladder diagram — left panel: ladder at a general time with x labeled along the floor, y labeled up the wall, 13 labeled as the hypotenuse, and dx/dt and dy/dt shown as small arrows indicating direction of motion; right panel: the specific instant x = 5, y = 12 with the numerical values substituted — student should see the general setup (left) that produces the equation differentiated, and the specific substitution (right) that yields the answer] -->
+![Ladder diagram ](images/04-applications-of-derivatives-fig-03.png)
+*Figure 4.3 — Ladder diagram *
 
 The interesting thing about related rates isn't the arithmetic. It's the move. You took a static geometric equation — Pythagoras — and by differentiating with respect to time, turned it into a dynamic equation about rates. The same equation that constrains positions also constrains velocities. There's a whole philosophy in that: the structure of the world that determines where things are also determines how fast they're moving.
 
@@ -67,7 +70,8 @@ The technique has a name in engineering: *first-order approximation*. The idea i
 
 What happens when you move away from the anchor? The error grows. At $x = 5$, the tangent-line approximation gives $2 + (1/4)(1) = 2.25$, but $\sqrt{5} \approx 2.236$. The error is now 0.6 percent — sixty times larger than at $x = 4.1$. Accuracy degrades with distance from the anchor. The further you go, the worse the approximation. This is not a flaw in the technique; it's built into what "linear" means. A straight line is a perfect approximation to a curved function at one point and progressively wrong everywhere else.
 
-<!-- → [IMAGE: graph of y = √x (solid curve) and its tangent line at a = 4 (dashed line) on the same axes, from x = 1 to x = 9 — mark the points (4.1, L(4.1)) and (4.1, √4.1) with labels showing the tiny gap, then mark (5, L(5)) and (5, √5) with labels showing the larger gap; caption: "The tangent line is perfect at a = 4 and progressively wrong everywhere else — the error grows with distance from the anchor"] -->
+![The tangent line is perfect at a = 4 and progressively wrong everywhere else — the error grows with distance from the anchor](images/04-applications-of-derivatives-fig-04.png)
+*Figure 4.4 — Graph of y = √x (solid curve) and*
 
 The differential notation makes this concrete. Call a small change in $x$ by the name $dx$. The change in $f$ predicted by the tangent line is $dy = f'(x) \, dx$. The actual change in $f$ is $\Delta y = f(x + dx) - f(x)$. For small $dx$, $\Delta y \approx dy$. The differential $dy$ is the linear estimate; $\Delta y$ is what the function actually does. They agree to first order.
 
@@ -96,7 +100,8 @@ $$f(-2) = -1, \quad f(-1) = 3, \quad f(1) = -1, \quad f(2) = 3$$
 Absolute maximum: 3, achieved at $x = -1$ and $x = 2$.
 Absolute minimum: $-1$, achieved at $x = -2$ and $x = 1$.
 
-<!-- → [IMAGE: graph of f(x) = x³ − 3x + 1 on [−2, 2] — mark and label the four evaluated points: (−2, −1), (−1, 3), (1, −1), (2, 3) — shade or highlight the two maxima and two minima; student should see that the absolute max is achieved by both an interior critical point and an endpoint, making the point that endpoints always compete] -->
+![Graph of f(x) = x³ − 3x +](images/04-applications-of-derivatives-fig-05.png)
+*Figure 4.5 — Graph of f(x) = x³ − 3x +*
 
 The fact that the maximum is achieved at two different points — one a critical point, one an endpoint — is worth noticing. Both count. An endpoint can beat an interior critical point.
 
@@ -112,7 +117,8 @@ $$f'(c) = \frac{f(b) - f(a)}{b - a}$$
 
 The right side is the average rate of change over the interval — the secant slope. The theorem says this average must be instantaneously achieved somewhere inside.
 
-<!-- → [IMAGE: graph of a smooth curve f on [a, b] — the secant line connecting (a, f(a)) and (b, f(b)) drawn as a dashed line; a point c inside (a, b) where the tangent line is parallel to the secant, with the tangent drawn as a solid line; the slope of both lines labeled as (f(b)−f(a))/(b−a); caption: "The MVT says the secant slope must be matched by the tangent somewhere inside — the average rate of change equals the instantaneous rate at some point c"] -->
+![The MVT says the secant slope must be matched by the tangent somewhere inside — the average rate of change equals the instantaneous rate at some point c](images/04-applications-of-derivatives-fig-06.png)
+*Figure 4.6 — Graph of a smooth curve f on [a,*
 
 It sounds like common sense. It is not trivial to prove. The proof uses a clever auxiliary function and the extreme-value theorem, and it works only under the stated conditions (continuous on the closed interval, differentiable on the open one).
 
@@ -140,7 +146,8 @@ This is the *first derivative test*, and it works even when the second derivativ
 
 The *second derivative* tells you about concavity — whether the function curves upward or downward. Where $f''(x) > 0$, the graph is *concave up*: it curves like a bowl, and tangent lines lie below the graph. Where $f''(x) < 0$, the graph is *concave down*: it curves like an arch, and tangent lines lie above. Where concavity changes is an *inflection point*, typically where $f''(x) = 0$ and $f''$ changes sign.
 
-<!-- → [IMAGE: two side-by-side curve panels — left: a concave-up arc (f'' > 0) with two tangent lines drawn, both lying below the curve, labeled "concave up — tangent lines below"; right: a concave-down arc (f'' < 0) with two tangent lines drawn, both lying above the curve, labeled "concave down — tangent lines above" — student should see the defining geometric property of concavity, not just the sign-of-second-derivative rule] -->
+![Two side-by-side curve panels ](images/04-applications-of-derivatives-fig-07.png)
+*Figure 4.7 — Two side-by-side curve panels *
 
 The *second derivative test* at a critical point: if $f'(c) = 0$ and $f''(c) < 0$, the function is concave down at $c$, so it's a local maximum. If $f''(c) > 0$, it's concave up, so it's a local minimum. If $f''(c) = 0$, the test tells you nothing — fall back to the first derivative test.
 
@@ -166,7 +173,8 @@ $A'(y) = 100 - 4y = 0 \implies y = 25$. Second derivative $A'' = -4 < 0$: maximu
 
 What's interesting here isn't the computation. It's the proportion: $x = 2y$. The optimal wall-parallel side is twice the perpendicular. This proportion shows up whenever you optimize a rectangle with one free side, regardless of the total fencing. The calculus gives you the general answer, not just the specific number.
 
-<!-- → [IMAGE: diagram of the fencing problem — a rectangle with one side labeled "wall (free)", the opposite side labeled x = 50 ft, and the two perpendicular sides each labeled y = 25 ft; the total fencing equation x + 2y = 100 and the area A = 1250 sq ft labeled; student should see the optimal 2:1 proportion and connect it to the general result that x = 2y regardless of total fencing budget] -->
+![Diagram of the fencing problem ](images/04-applications-of-derivatives-fig-08.png)
+*Figure 4.8 — Diagram of the fencing problem *
 
 ---
 
@@ -194,7 +202,8 @@ $$x_1 = 1 - \frac{-1}{2} = 1.5 \qquad x_2 = 1.5 - \frac{0.25}{3} = 1.4\overline{
 
 Three iterations from a poor starting guess. The quadratic convergence is what makes Newton's method the root-finding algorithm at the core of most numerical software.
 
-<!-- → [IMAGE: graph of f(x) = x² − 2 with Newton's method iterations shown geometrically — at x₀ = 1, draw the tangent line to the curve; mark where it crosses zero (x₁ = 1.5); at x₁, draw the next tangent; mark where it crosses zero (x₂ ≈ 1.417); show the successive x-values converging toward √2 ≈ 1.4142; caption: "Each iteration: draw the tangent, find where it hits zero, move there. The correct digits roughly double each step."] -->
+![Each iteration: draw the tangent, find where it hits zero, move there. The correct digits roughly double each step.](images/04-applications-of-derivatives-fig-09.png)
+*Figure 4.9 — Graph of f(x) = x² − 2 with*
 
 *Antiderivatives* are where the chapter gestures toward what's coming. Given $f$, find $F$ such that $F'(x) = f(x)$. By the MVT corollary, all such $F$'s differ by a constant. The general antiderivative is written $\int f(x) \, dx = F(x) + C$.
 
@@ -204,7 +213,13 @@ $$\int x^n \, dx = \frac{x^{n+1}}{n+1} + C \quad (n \neq -1), \quad \int e^x \, 
 
 These are not new computations. They are the derivative table read backwards.
 
-<!-- → [TABLE: two-column antiderivative reference — left column: "Derivative rule (forward)"; right column: "Antiderivative (reverse)"; rows: (d/dx xⁿ⁺¹/(n+1) = xⁿ) | (∫ xⁿ dx = xⁿ⁺¹/(n+1) + C), (d/dx eˣ = eˣ) | (∫ eˣ dx = eˣ + C), (d/dx sin x = cos x) | (∫ cos x dx = sin x + C), (d/dx (−cos x) = sin x) | (∫ sin x dx = −cos x + C), (d/dx ln|x| = 1/x) | (∫ 1/x dx = ln|x| + C) — student should see that every antiderivative formula is the derivative table read right-to-left, not a new set of facts to memorize] -->
+| Derivative rule (forward) |
+| --- |
+| d |
+| d |
+| d |
+| d |
+| d |
 
 The Fundamental Theorem of Calculus, which Chapter 5 develops, will show that the integral — historically defined as a limit of sums, a device for computing areas and accumulated quantities — and the antiderivative are the same operation. Integration and differentiation are inverse operations. The antiderivative introduced here, at the end of a chapter on derivatives, is the hinge between the two halves of calculus.
 
@@ -268,3 +283,85 @@ Who was Pierre de Fermat, and how does his method of adequality connect to the o
 - Ask it about Fermat's day job as a magistrate, and how mathematics fit into a working lawyer's life.
 
 What changes? What gets better? What gets worse?
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 4.1 — Rocket-and-camera geometry 
+
+Create a standalone D3 v7 HTML file for Figure Rocket-and-camera geometry . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: rocket-and-camera geometry — camera on the ground at horizontal distance D = 1000 ft from the pad, rocket at height h, angle θ labeled between the ground and the line of sight; the right triangle formed by D, h, and the hypotenuse clearly visible with tan θ = h/D labeled — student should see the static geometric setup that the chapter differentiates into a dynamic one. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/04-applications-of-derivatives-fig-01.html`
+
+---
+
+### Figure 4.2 — Line chart of dθ/dt (angular rate) on the
+
+Create a standalone D3 v7 HTML file for Figure Line chart of dθ/dt (angular rate) on the. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: line chart of dθ/dt (angular rate) on the y-axis vs. rocket height h on the x-axis, from h = 0 to h = 5000 ft, with D = 1000 ft fixed and dh/dt = 100 ft/s — student should see the angular rate is highest at launch and decays as h grows, making the counterintuitive point that tracking gets easier at high altitude despite greater speed. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/04-applications-of-derivatives-fig-02.html`
+
+---
+
+### Figure 4.3 — Ladder diagram 
+
+Create a standalone D3 v7 HTML file for Figure Ladder diagram . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: two-panel ladder diagram — left panel: ladder at a general time with x labeled along the floor, y labeled up the wall, 13 labeled as the hypotenuse, and dx/dt and dy/dt shown as small arrows indicating direction of motion; right panel: the specific instant x = 5, y = 12 with the numerical values substituted — student should see the general setup (left) that produces the equation differentiated, and the specific substitution (right) that yields the answer. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/04-applications-of-derivatives-fig-03.html`
+
+---
+
+### Figure 4.4 — Graph of y = √x (solid curve) and
+
+Create a standalone D3 v7 HTML file for Figure Graph of y = √x (solid curve) and. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: graph of y = √x (solid curve) and its tangent line at a = 4 (dashed line) on the same axes, from x = 1 to x = 9 — mark the points (4.1, L(4.1)) and (4.1, √4.1) with labels showing the tiny gap, then mark (5, L(5)) and (5, √5) with labels showing the larger gap; caption: "The tangent line is perfect at a = 4 and progressively wrong everywhere else — the error grows with distance from the anchor". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/04-applications-of-derivatives-fig-04.html`
+
+---
+
+### Figure 4.5 — Graph of f(x) = x³ − 3x +
+
+Create a standalone D3 v7 HTML file for Figure Graph of f(x) = x³ − 3x +. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: graph of f(x) = x³ − 3x + 1 on [−2, 2] — mark and label the four evaluated points: (−2, −1), (−1, 3), (1, −1), (2, 3) — shade or highlight the two maxima and two minima; student should see that the absolute max is achieved by both an interior critical point and an endpoint, making the point that endpoints always compete. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/04-applications-of-derivatives-fig-05.html`
+
+---
+
+### Figure 4.6 — Graph of a smooth curve f on [a,
+
+Create a standalone D3 v7 HTML file for Figure Graph of a smooth curve f on [a,. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: graph of a smooth curve f on [a, b] — the secant line connecting (a, f(a)) and (b, f(b)) drawn as a dashed line; a point c inside (a, b) where the tangent line is parallel to the secant, with the tangent drawn as a solid line; the slope of both lines labeled as (f(b)−f(a))/(b−a); caption: "The MVT says the secant slope must be matched by the tangent somewhere inside — the average rate of change equals the instantaneous rate at some point c". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/04-applications-of-derivatives-fig-06.html`
+
+---
+
+### Figure 4.7 — Two side-by-side curve panels 
+
+Create a standalone D3 v7 HTML file for Figure Two side-by-side curve panels . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: two side-by-side curve panels — left: a concave-up arc (f'' > 0) with two tangent lines drawn, both lying below the curve, labeled "concave up — tangent lines below"; right: a concave-down arc (f'' < 0) with two tangent lines drawn, both lying above the curve, labeled "concave down — tangent lines above" — student should see the defining geometric property of concavity, not just the sign-of-second-derivative rule. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/04-applications-of-derivatives-fig-07.html`
+
+---
+
+### Figure 4.8 — Diagram of the fencing problem 
+
+Create a standalone D3 v7 HTML file for Figure Diagram of the fencing problem . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: diagram of the fencing problem — a rectangle with one side labeled "wall (free)", the opposite side labeled x = 50 ft, and the two perpendicular sides each labeled y = 25 ft; the total fencing equation x + 2y = 100 and the area A = 1250 sq ft labeled; student should see the optimal 2:1 proportion and connect it to the general result that x = 2y regardless of total fencing budget. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/04-applications-of-derivatives-fig-08.html`
+
+---
+
+### Figure 4.9 — Graph of f(x) = x² − 2 with
+
+Create a standalone D3 v7 HTML file for Figure Graph of f(x) = x² − 2 with. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: graph of f(x) = x² − 2 with Newton's method iterations shown geometrically — at x₀ = 1, draw the tangent line to the curve; mark where it crosses zero (x₁ = 1.5); at x₁, draw the next tangent; mark where it crosses zero (x₂ ≈ 1.417); show the successive x-values converging toward √2 ≈ 1.4142; caption: "Each iteration: draw the tangent, find where it hits zero, move there. The correct digits roughly double each step.". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/04-applications-of-derivatives-fig-09.html`

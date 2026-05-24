@@ -1,7 +1,8 @@
 # Chapter 1 — Functions and Graphs
 *How a scale that hides a factor of 350 inside two digits forces you to understand what a function actually does.*
 
-<!-- → [INFOGRAPHIC: horizontal number line showing 7.3, 8.2, 9 above it labeled "what it looks like"; below it, a second scale showing the actual energy ratios — ×1 at 7.3, ×~11 at 8.2, ×350 at 9 — to viscerally show the compression the logarithm is doing] -->
+![Horizontal number line showing 7](images/01-functions-and-graphs-fig-01.png)
+*Figure 1.1 — Horizontal number line showing 7*
 
 Three numbers: 7.3, 8.2, 9.
 
@@ -33,11 +34,13 @@ A *formula* like $f(x) = x^2 + 3$ is compact and exact and calculable — but it
 
 Real problems require shuttling between these four representations constantly. You read a verbal description, translate it to a formula, compute an output, then interpret the output back in words. Miss any step in that translation and you get a wrong answer that looks right because the arithmetic was fine.
 
-<!-- → [IMAGE: four-panel grid showing the same function f(x) = x² + 3 in each of its four representations — formula top-left, graph top-right, partial table bottom-left, verbal description bottom-right — with arrows between panels labeled "translate"; caption: real problems require moving fluently among all four] -->
+![Four-panel grid showing the same function f(x) =](images/01-functions-and-graphs-fig-02.png)
+*Figure 1.2 — Four-panel grid showing the same function f(x) =*
 
 The *vertical line test* is the graph version of "exactly one output per input." Any vertical line should cross the graph of a function at most once. If it crosses twice, you have two outputs for one input, and whatever you're drawing isn't a function.
 
-<!-- → [IMAGE: two side-by-side graphs — left: a circle (not a function) with a vertical line crossing it twice, labeled "NOT a function — two outputs for one input"; right: y = x³ with a vertical line crossing once, labeled "function" — student should see the test as a direct visual restatement of the definition, not a separate rule to memorize] -->
+![Two side-by-side graphs ](images/01-functions-and-graphs-fig-03.png)
+*Figure 1.3 — Two side-by-side graphs *
 
 *Composition* is the operation that genuinely distinguishes functions from ordinary numbers. $(f \circ g)(x) = f(g(x))$ means: first apply $g$ to $x$, then apply $f$ to whatever came out. The key fact is that order matters. $f \circ g$ and $g \circ f$ are generally different:
 
@@ -53,7 +56,8 @@ $$
 
 Different functions. The first squares first, then adds. The second adds first, then squares. The order changed the output. This non-commutativity — the fact that you can't always swap the order of operations — is something calculus inherits and that the chain rule (Chapter 3) is specifically built to handle.
 
-<!-- → [INFOGRAPHIC: two horizontal pipeline diagrams — top pipe labeled "f ∘ g": input x → box "add 1" → box "square" → output (x+1)²; bottom pipe labeled "g ∘ f": input x → box "square" → box "add 1" → output x²+1 — visually shows non-commutativity by making the order of operations boxes explicit; student should see that swapping the boxes changes the result] -->
+![Two horizontal pipeline diagrams ](images/01-functions-and-graphs-fig-04.png)
+*Figure 1.4 — Two horizontal pipeline diagrams *
 
 One more vocabulary item worth having now: a function is *increasing* on an interval if larger inputs give larger outputs there, and *decreasing* if larger inputs give smaller outputs. A function is *even* if $f(-x) = f(x)$ — symmetric across the $y$-axis, like $x^2$ or $\cos x$. It's *odd* if $f(-x) = -f(x)$ — rotationally symmetric about the origin, like $x^3$ or $\sin x$.
 
@@ -73,11 +77,14 @@ Lines ($mx + b$) and parabolas ($ax^2 + bx + c$) are special cases you already k
 
 **Transcendental functions.** Functions that *cannot* be built algebraically from polynomials, no matter how many operations you use. The trigonometric functions are transcendental. So are the exponential and logarithmic functions. Transcendental functions are named for the Latin "transcendere" — to climb beyond — meaning they transcend the reach of algebra alone.
 
-<!-- → [TABLE: function family quick-reference — columns: Family, Representative example, Domain, Smooth everywhere?, Grows faster than all polynomials?; rows: polynomial, rational, algebraic/root, exponential, logarithmic, trigonometric — designed for use as a lookup card while working problems in later chapters] -->
+| Family | Representative example | Domain | Smooth everywhere? | Grows faster than all polynomials? |
+| --- | --- | --- | --- | --- |
+| polynomial, rational, algebraic | root, exponential, logarithmic, trigonometric | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
 
 The common confusion worth flagging: $b^x$ and $x^b$ are completely different functions that happen to use the same notation structure. In $b^x$, the variable is the exponent and the base is fixed — that's exponential, and it grows (or decays) at a rate proportional to its current value. In $x^b$, the variable is the base and the power is fixed — that's a power function, polynomial-style. An exponential eventually outgrows any polynomial, no matter how large the polynomial's degree. They are not even in the same family.
 
-<!-- → [CHART: four curves on the same axes — x², x⁵, and 2^x plotted from x = 0 to x = 25 — student should see that 2^x starts well below the polynomials but eventually overtakes both; mark the crossover points; caption: "Eventually always wins — no matter the polynomial's degree, the exponential catches up and passes it"] -->
+![Eventually always wins — no matter the polynomial's degree, the exponential catches up and passes it](images/01-functions-and-graphs-fig-05.png)
+*Figure 1.5 — Four curves on the same axes *
 
 ---
 
@@ -89,7 +96,8 @@ $$\sin^2\theta + \cos^2\theta = 1$$
 
 because the point is on a circle of radius 1, and radius squared is $x^2 + y^2$.
 
-<!-- → [IMAGE: unit circle with a point P at a general angle θ labeled (cos θ, sin θ), the perpendicular dropped to the x-axis forming a right triangle with legs cos θ and sin θ and hypotenuse 1, the arc from (1,0) to P labeled "θ radians"; caption: "Cosine is the x-coordinate. Sine is the y-coordinate. The Pythagorean identity is just x² + y² = 1 applied to the radius."] -->
+![Cosine is the x-coordinate. Sine is the y-coordinate. The Pythagorean identity is just x² + y² = 1 applied to the radius.](images/01-functions-and-graphs-fig-06.png)
+*Figure 1.6 — Unit circle with a point P at a*
 
 Everything else in trig follows from this one picture:
 
@@ -101,7 +109,14 @@ Why radians? Because one radian is the angle subtended by an arc of length 1 on 
 
 The conversion: $360° = 2\pi$ radians. So $180° = \pi$, $90° = \pi/2$, $60° = \pi/3$, $45° = \pi/4$, $30° = \pi/6$. The reference angles $\pi/6$, $\pi/4$, $\pi/3$ are the ones worth knowing exactly, because they give exact values for sine and cosine — and because every angle in common use can be reduced to one of them plus a quadrant sign.
 
-<!-- → [TABLE: reference angle exact values — rows: π/6 (30°), π/4 (45°), π/3 (60°), π/2 (90°); columns: angle in radians, degrees, sin, cos, tan — all values exact (fractions and radicals, not decimals); designed as a memorization target and lookup tool] -->
+| angle in radians | degrees | sin | cos | tan — all values exact (fractions |
+| --- | --- | --- | --- | --- |
+| π | 6 (30° | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| π | 4 (45° | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| π | 3 (60° | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| π | 2 (90° | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| columns: angle in radians, degrees, sin, cos, tan | all values exact (fractions and radicals, not decimals | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| designed as a memorization target and lookup tool | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
 
 Here's how that reduction works in practice. Find $\sin(7\pi/6)$ exactly.
 
@@ -109,7 +124,8 @@ $7\pi/6 = \pi + \pi/6$: that's the standard $\pi/6$ angle pushed past the negati
 
 The pattern is general: find the reference angle, look up the positive value, apply the sign from the quadrant. Every trig evaluation at a "non-standard" angle reduces to this three-step procedure.
 
-<!-- → [IMAGE: unit circle with all four quadrants labeled with sign patterns for (sin, cos) — Q1: (+,+), Q2: (+,−), Q3: (−,−), Q4: (−,+) — the angle 7π/6 marked, with the reference angle π/6 shown as the acute angle between the terminal side and the negative x-axis; caption: "Three steps: find the reference angle, look up the positive value, apply the quadrant sign"] -->
+![Three steps: find the reference angle, look up the positive value, apply the quadrant sign](images/01-functions-and-graphs-fig-07.png)
+*Figure 1.7 — Unit circle with all four quadrants labeled with*
 
 Periodicity: $\sin$ and $\cos$ have period $2\pi$ — go all the way around the circle and you're back where you started. $\tan$ has period $\pi$ — halfway around, and the ratio $\sin/\cos$ repeats, because both numerator and denominator change sign together, canceling.
 
@@ -134,7 +150,8 @@ This is the general concept. A function $f$ has an *inverse* $f^{-1}$ precisely 
 
 The function $f(x) = x^2$ on all real numbers is not one-to-one: $f(2) = f(-2) = 4$. Restrict to $x \geq 0$, and each output $y \geq 0$ corresponds to exactly one input: $\sqrt{y}$. That's the inverse. Restriction of domain is how non-one-to-one functions get inverses anyway — you agree to work on a piece of the domain where the function behaves.
 
-<!-- → [IMAGE: three-panel figure — left: full parabola y = x² with a horizontal line cutting it twice, labeled "not one-to-one"; center: right half of parabola (x ≥ 0) with the same horizontal line cutting it once, labeled "restricted domain — now one-to-one"; right: y = x² (x ≥ 0) and y = √x plotted together with y = x as a dashed line, showing the two curves as mirror images — student should see restriction, one-to-one test, and the y = x reflection all at once] -->
+![Figure ](images/01-functions-and-graphs-fig-08.png)
+*Figure 1.8 — Figure *
 
 To find an inverse algebraically: write $y = f(x)$, swap $x$ and $y$, solve for $y$. What you get is $y = f^{-1}(x)$. Let's check this on a concrete example.
 
@@ -160,7 +177,8 @@ These hold for all real exponents.
 
 The *natural exponential* $f(x) = e^x$ uses the base $e \approx 2.71828$. Euler's number $e$ is the unique base for which the derivative of $b^x$ equals $b^x$ itself — meaning the natural exponential is its own rate of change. We'll see exactly why that's true in Chapter 3. For now, know that $e$ is not an arbitrary choice; it's the base that makes calculus simplest.
 
-<!-- → [CHART: three exponential curves on the same axes — y = 2^x, y = e^x, y = 3^x — plotted from x = −2 to x = 3; all pass through (0,1); e^x sits between the other two; draw the tangent line to each curve at x = 0 and annotate its slope (< 1 for 2^x, = 1 for e^x, > 1 for 3^x) — student should see geometrically why e is the base where the slope at (0,1) equals exactly 1] -->
+![Three exponential curves on the same axes ](images/01-functions-and-graphs-fig-09.png)
+*Figure 1.9 — Three exponential curves on the same axes *
 
 ### Logarithmic functions
 
@@ -178,7 +196,11 @@ $$
 \log_b(x^p) = p\log_b x
 $$
 
-<!-- → [TABLE: two-column side-by-side — left column header "Exponent rule", right column header "Corresponding log rule"; three rows: (b^x · b^y = b^(x+y)) | (log_b(xy) = log_b x + log_b y), (b^x / b^y = b^(x−y)) | (log_b(x/y) = log_b x − log_b y), ((b^x)^p = b^(xp)) | (log_b(x^p) = p log_b x) — student should see that the log rules are not three new facts but the same three rules written in inverse notation] -->
+| Item | Meaning |
+| --- | --- |
+| b^x · b^y = b^(x+y)) / (log_b(xy) = log_b x + log_b y | A concrete checkpoint for applying the chapter concept. |
+| b^x | b^y = b^(x−y)) / (log_b(x |
+| b^x)^p = b^(xp)) / (log_b(x^p) = p log_b x) | student should see that the log rules are not three new facts but the same three rules written in inverse notation |
 
 Read these rules carefully. The first one says the logarithm turns multiplication into addition. That's not a coincidence or a trick — it's the entire structural reason logarithms exist. Before electronic computation, all multiplication of large numbers was done by converting to logarithms (look up in a table), adding, then converting back. The exponent rules and the log rules are the same rules, expressed in different notation.
 
@@ -216,7 +238,8 @@ Here is what you now have. Functions are precise rules. They live in families: p
 
 And every single one of these concepts is a statement *about functions*. That's not a coincidence. Calculus is the study of functions: their behavior near a point (limits), their rates of change (derivatives), and their accumulated totals (integrals). The function vocabulary in this chapter is the language that Chapter 2 is written in. Without it, the definitions don't parse. With it, they fall into place.
 
-<!-- → [INFOGRAPHIC: "Logarithmic scales in the wild" — four rows for Richter, decibels, pH, and apparent magnitude; columns: scale name, physical quantity compressed, base, worked comparison (e.g. "magnitude 6 → 7 = ×10 amplitude, ×~32 energy"); student should see the chapter's core machinery recurring across chemistry, physics, geology, and astronomy — one structure, many disguises] -->
+!["Logarithmic scales in the wild" ](images/01-functions-and-graphs-fig-10.png)
+*Figure 1.10 — "Logarithmic scales in the wild" *
 
 ---
 
@@ -256,3 +279,93 @@ Who was Sophie Germain, and how does her mathematical work connect to the functi
 - Ask it about Gauss's letter to Germain after he discovered she was a woman.
 
 What changes? What gets better? What gets worse?
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 1.1 — Horizontal number line showing 7
+
+Create a standalone D3 v7 HTML file for Figure Horizontal number line showing 7. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: horizontal number line showing 7.3, 8.2, 9 above it labeled "what it looks like"; below it, a second scale showing the actual energy ratios — ×1 at 7.3, ×~11 at 8.2, ×350 at 9 — to viscerally show the compression the logarithm is doing. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-functions-and-graphs-fig-01.html`
+
+---
+
+### Figure 1.2 — Four-panel grid showing the same function f(x) =
+
+Create a standalone D3 v7 HTML file for Figure Four-panel grid showing the same function f(x) =. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: four-panel grid showing the same function f(x) = x² + 3 in each of its four representations — formula top-left, graph top-right, partial table bottom-left, verbal description bottom-right — with arrows between panels labeled "translate"; caption: real problems require moving fluently among all four. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-functions-and-graphs-fig-02.html`
+
+---
+
+### Figure 1.3 — Two side-by-side graphs 
+
+Create a standalone D3 v7 HTML file for Figure Two side-by-side graphs . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: two side-by-side graphs — left: a circle (not a function) with a vertical line crossing it twice, labeled "NOT a function — two outputs for one input"; right: y = x³ with a vertical line crossing once, labeled "function" — student should see the test as a direct visual restatement of the definition, not a separate rule to memorize. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-functions-and-graphs-fig-03.html`
+
+---
+
+### Figure 1.4 — Two horizontal pipeline diagrams 
+
+Create a standalone D3 v7 HTML file for Figure Two horizontal pipeline diagrams . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: two horizontal pipeline diagrams — top pipe labeled "f ∘ g": input x → box "add 1" → box "square" → output (x+1)²; bottom pipe labeled "g ∘ f": input x → box "square" → box "add 1" → output x²+1 — visually shows non-commutativity by making the order of operations boxes explicit; student should see that swapping the boxes changes the result. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-functions-and-graphs-fig-04.html`
+
+---
+
+### Figure 1.5 — Four curves on the same axes 
+
+Create a standalone D3 v7 HTML file for Figure Four curves on the same axes . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: four curves on the same axes — x², x⁵, and 2^x plotted from x = 0 to x = 25 — student should see that 2^x starts well below the polynomials but eventually overtakes both; mark the crossover points; caption: "Eventually always wins — no matter the polynomial's degree, the exponential catches up and passes it". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-functions-and-graphs-fig-05.html`
+
+---
+
+### Figure 1.6 — Unit circle with a point P at a
+
+Create a standalone D3 v7 HTML file for Figure Unit circle with a point P at a. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: unit circle with a point P at a general angle θ labeled (cos θ, sin θ), the perpendicular dropped to the x-axis forming a right triangle with legs cos θ and sin θ and hypotenuse 1, the arc from (1,0) to P labeled "θ radians"; caption: "Cosine is the x-coordinate. Sine is the y-coordinate. The Pythagorean identity is just x² + y² = 1 applied to the radius.". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-functions-and-graphs-fig-06.html`
+
+---
+
+### Figure 1.7 — Unit circle with all four quadrants labeled with
+
+Create a standalone D3 v7 HTML file for Figure Unit circle with all four quadrants labeled with. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: unit circle with all four quadrants labeled with sign patterns for (sin, cos) — Q1: (+,+), Q2: (+,−), Q3: (−,−), Q4: (−,+) — the angle 7π/6 marked, with the reference angle π/6 shown as the acute angle between the terminal side and the negative x-axis; caption: "Three steps: find the reference angle, look up the positive value, apply the quadrant sign". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-functions-and-graphs-fig-07.html`
+
+---
+
+### Figure 1.8 — Figure 
+
+Create a standalone D3 v7 HTML file for Figure Figure . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: three-panel figure — left: full parabola y = x² with a horizontal line cutting it twice, labeled "not one-to-one"; center: right half of parabola (x ≥ 0) with the same horizontal line cutting it once, labeled "restricted domain — now one-to-one"; right: y = x² (x ≥ 0) and y = √x plotted together with y = x as a dashed line, showing the two curves as mirror images — student should see restriction, one-to-one test, and the y = x reflection all at once. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-functions-and-graphs-fig-08.html`
+
+---
+
+### Figure 1.9 — Three exponential curves on the same axes 
+
+Create a standalone D3 v7 HTML file for Figure Three exponential curves on the same axes . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: three exponential curves on the same axes — y = 2^x, y = e^x, y = 3^x — plotted from x = −2 to x = 3; all pass through (0,1); e^x sits between the other two; draw the tangent line to each curve at x = 0 and annotate its slope (< 1 for 2^x, = 1 for e^x, > 1 for 3^x) — student should see geometrically why e is the base where the slope at (0,1) equals exactly 1. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-functions-and-graphs-fig-09.html`
+
+---
+
+### Figure 1.10 — "Logarithmic scales in the wild" 
+
+Create a standalone D3 v7 HTML file for Figure "Logarithmic scales in the wild" . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: "Logarithmic scales in the wild" — four rows for Richter, decibels, pH, and apparent magnitude; columns: scale name, physical quantity compressed, base, worked comparison (e.g. "magnitude 6 → 7 = ×10 amplitude, ×~32 energy"); student should see the chapter's core machinery recurring across chemistry, physics, geology, and astronomy — one structure, many disguises. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-functions-and-graphs-fig-10.html`

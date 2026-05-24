@@ -9,7 +9,8 @@ That's the question. Not "what was the average rate?" but "what was the rate *ri
 
 That's where Chapter 2 ends and this one begins. The instantaneous rate of change is a limit. It has a name. It is the *derivative*.
 
-<!-- → [IMAGE: secant line tilting toward tangent — plot of f(x) = x² with several secant lines drawn from (1, 1) to (1+h, (1+h)²) for shrinking h values (h = 1, 0.5, 0.25, 0.1); each secant line drawn in lighter shade, all converging toward the tangent line at (1, 1) shown in bold; label the limit explicitly: "as h → 0, the secant slope approaches the tangent slope = 2" — student should see the geometric limit happening before the algebraic one] -->
+![Secant line tilting toward tangent ](images/03-derivatives-fig-01.png)
+*Figure 3.1 — Secant line tilting toward tangent *
 
 ---
 
@@ -51,7 +52,8 @@ The second failure mode is the *corner*. The function $f(x) = |x|$ is continuous
 
 The third failure mode is the *vertical tangent*. The function $f(x) = x^{1/3}$ is continuous and smooth-looking, but at $x = 0$ the tangent line is vertical. The slope is "infinite" in the same colloquial sense as $\lim_{x \to 0^+} 1/x$ — the limit blows up. There's a tangent line you could draw, but it doesn't have a finite slope, and the derivative isn't a finite number.
 
-<!-- → [INFOGRAPHIC: three-panel side-by-side diagram of differentiability failures — panel 1: jump discontinuity at x = 0 (function defined as 1 for x ≥ 0, −1 for x < 0), with annotation "no derivative: not even continuous"; panel 2: corner at x = 0 for f(x) = |x|, with annotation "no derivative: one-sided slopes disagree (+1 and −1)"; panel 3: vertical tangent at x = 0 for f(x) = x^(1/3), with annotation "no derivative: slope blows up" — caption beneath: "Continuous everywhere is necessary for differentiability. It is not sufficient."] -->
+![Side-by-side diagram of differentiability failures ](images/03-derivatives-fig-02.png)
+*Figure 3.2 — Side-by-side diagram of differentiability failures *
 
 The trade-off named here is one to keep close: differentiability is *stronger* than continuity. Every differentiable function is continuous. Most continuous functions are differentiable. But you cannot run the implication backwards — being continuous doesn't earn you a derivative. The corners and vertical tangents are continuous; they're just not smooth enough.
 
@@ -77,7 +79,8 @@ $$\frac{d}{dx}\bigl(f \cdot g\bigr) = f'(x) g(x) + f(x) g'(x)$$
 
 There's a geometric picture for this. Imagine $f$ and $g$ as the two sides of a rectangle with area $A = f \cdot g$. Increase each side by a tiny amount: $f$ increases by $f'(x) \, dx$, $g$ increases by $g'(x) \, dx$. The new area is $(f + f' \, dx)(g + g' \, dx) = fg + fg' \, dx + f'g \, dx + f' g' (dx)^2$. The change in area $dA$ is the sum of the two thin strip contributions $f g' \, dx + f' g \, dx$, plus the corner term $f' g' (dx)^2$ which vanishes faster than $dx$ and contributes nothing in the limit. Divide both sides by $dx$ and you have the product rule.
 
-<!-- → [IMAGE: product-rule rectangle picture — original rectangle of width f(x) and height g(x) shaded lightly; horizontal strip on top of width f and height g'(x)dx labeled "f · g' · dx"; vertical strip on right of width f'(x)dx and height g labeled "f' · g · dx"; tiny corner box f'(x)dx × g'(x)dx labeled "(dx)² term — vanishes" — student should see the two thin strips that survive the limit and the corner term that doesn't] -->
+![Product-rule rectangle picture ](images/03-derivatives-fig-03.png)
+*Figure 3.3 — Product-rule rectangle picture *
 
 The **quotient rule** follows from the product rule applied to $f \cdot (1/g)$:
 
@@ -113,7 +116,8 @@ $$h'(x) = 5(x^2 + 3)^4 \cdot 2x = 10x(x^2 + 3)^4$$
 
 The mental motion: differentiate the outer function leaving the inner alone, then multiply by the derivative of the inner. Power-rule the outer, treat $g(x)$ as if it were a variable, then attach $g'(x)$ as a multiplicative factor.
 
-<!-- → [IMAGE: chain rule as nested boxes — outer box labeled f(·) containing inner box labeled g(·) containing variable x; arrows showing the order of operations: x flows into g, g(x) flows into f; below the diagram, derivative flows in reverse: dy/du from outer, du/dx from inner, multiply them; caption: "Differentiate from the outside in, multiplying the derivative of each layer."] -->
+![Differentiate from the outside in, multiplying the derivative of each layer.](images/03-derivatives-fig-04.png)
+*Figure 3.4 — Chain rule as nested boxes *
 
 The chain rule is the most heavily used tool in differential calculus. Once you've internalized the pattern — outer-of-inner times derivative-of-inner — most computations dissolve into a few mechanical lines.
 
@@ -185,7 +189,8 @@ The jerk is most negative at $t = 0$ — the moment the launch shove begins to f
 
 The car is a calculus textbook in motion. Position is what you see. Velocity is the speedometer. Acceleration is what your body registers as force. Jerk is the change in that force — the texture of the launch. Each of these is the derivative of the previous one. The whole hierarchy is built from the same operation, applied repeatedly.
 
-<!-- → [CHART: three-panel time-series plot of v(t), a(t), and j(t) for the Venom GT model with τ = 10.79 s and v_max = 270.49 mph, from t = 0 to t = 30 s — top panel velocity asymptoting toward 270.49; middle panel acceleration starting at ~25 mph/s and decaying exponentially; bottom panel jerk starting at its most negative value and decaying toward zero — student should see the cascade: position smooth, velocity smooth, acceleration decaying, jerk decaying faster] -->
+![Time-series plot of v(t), a(t), and j(t) for](images/03-derivatives-fig-05.png)
+*Figure 3.5 — Time-series plot of v(t), a(t), and j(t) for*
 
 ---
 
@@ -243,3 +248,53 @@ Who was Maria Gaetana Agnesi, and how does her unified treatment of calculus con
 - Ask it about Agnesi's later abandonment of mathematics for the religious care of the poor — and what that suggests about 18th-century intellectual life.
 
 What changes? What gets better? What gets worse?
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 3.1 — Secant line tilting toward tangent 
+
+Create a standalone D3 v7 HTML file for Figure Secant line tilting toward tangent . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: secant line tilting toward tangent — plot of f(x) = x² with several secant lines drawn from (1, 1) to (1+h, (1+h)²) for shrinking h values (h = 1, 0.5, 0.25, 0.1); each secant line drawn in lighter shade, all converging toward the tangent line at (1, 1) shown in bold; label the limit explicitly: "as h → 0, the secant slope approaches the tangent slope = 2" — student should see the geometric limit happening before the algebraic one. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/03-derivatives-fig-01.html`
+
+---
+
+### Figure 3.2 — Side-by-side diagram of differentiability failures 
+
+Create a standalone D3 v7 HTML file for Figure Side-by-side diagram of differentiability failures . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: three-panel side-by-side diagram of differentiability failures — panel 1: jump discontinuity at x = 0 (function defined as 1 for x ≥ 0, −1 for x < 0), with annotation "no derivative: not even continuous"; panel 2: corner at x = 0 for f(x) = |x|, with annotation "no derivative: one-sided slopes disagree (+1 and −1)"; panel 3: vertical tangent at x = 0 for f(x) = x^(1/3), with annotation "no derivative: slope blows up" — caption beneath: "Continuous everywhere is necessary for differentiability. It is not sufficient.". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/03-derivatives-fig-02.html`
+
+---
+
+### Figure 3.3 — Product-rule rectangle picture 
+
+Create a standalone D3 v7 HTML file for Figure Product-rule rectangle picture . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: product-rule rectangle picture — original rectangle of width f(x) and height g(x) shaded lightly; horizontal strip on top of width f and height g'(x)dx labeled "f · g' · dx"; vertical strip on right of width f'(x)dx and height g labeled "f' · g · dx"; tiny corner box f'(x)dx × g'(x)dx labeled "(dx)² term — vanishes" — student should see the two thin strips that survive the limit and the corner term that doesn't. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/03-derivatives-fig-03.html`
+
+---
+
+### Figure 3.4 — Chain rule as nested boxes 
+
+Create a standalone D3 v7 HTML file for Figure Chain rule as nested boxes . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: chain rule as nested boxes — outer box labeled f(·) containing inner box labeled g(·) containing variable x; arrows showing the order of operations: x flows into g, g(x) flows into f; below the diagram, derivative flows in reverse: dy/du from outer, du/dx from inner, multiply them; caption: "Differentiate from the outside in, multiplying the derivative of each layer.". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/03-derivatives-fig-04.html`
+
+---
+
+### Figure 3.5 — Time-series plot of v(t), a(t), and j(t) for
+
+Create a standalone D3 v7 HTML file for Figure Time-series plot of v(t), a(t), and j(t) for. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: three-panel time-series plot of v(t), a(t), and j(t) for the Venom GT model with τ = 10.79 s and v_max = 270.49 mph, from t = 0 to t = 30 s — top panel velocity asymptoting toward 270.49; middle panel acceleration starting at ~25 mph/s and decaying exponentially; bottom panel jerk starting at its most negative value and decaying toward zero — student should see the cascade: position smooth, velocity smooth, acceleration decaying, jerk decaying faster. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/03-derivatives-fig-05.html`

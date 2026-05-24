@@ -45,7 +45,8 @@ $$S_4 = (1 + 4 + 9 + 16)(1) = 30$$
 
 The exact answer — which we'll compute properly in a moment — is $64/3 \approx 21.33$. The four-rectangle estimate of 30 overestimates badly, because $x^2$ is increasing and the right endpoints are the highest points in each slice. With more rectangles, the estimate closes in on $21.33$ from above.
 
-<!-- → [IMAGE: side-by-side panels showing Riemann sum convergence for ∫₀⁴ x² dx — left panel: n=4 right-endpoint rectangles sitting above the parabola curve, with total shaded area visibly larger than the area under the curve; right panel: n=20 right-endpoint rectangles, noticeably tighter fit; label S₄ = 30 and exact = 64/3 ≈ 21.33 on the respective panels — student should see that the rectangles shrink toward the curve as n grows] -->
+![Panels showing Riemann sum convergence for ∫₀⁴ x²](images/05-integration-fig-01.png)
+*Figure 5.1 — Panels showing Riemann sum convergence for ∫₀⁴ x²*
 
 Any continuous function is Riemann integrable — the limit exists for any sequence of sampling choices. Functions with finitely many jumps are also integrable. This is a theorem, not obvious, and it matters because it guarantees the integral exists before we try to compute it.
 
@@ -77,7 +78,8 @@ The running total's instantaneous rate of change is exactly $f(x)$. Differentiat
 
 This is the Fundamental Theorem, Part 1. Differentiation undoes integration.
 
-<!-- → [IMAGE: diagram illustrating FTC Part 1 — plot a positive curve f(t) above the t-axis; shade the area under f from a to x in one color to represent F(x); shade the thin additional strip from x to x+h in a contrasting color to represent F(x+h) − F(x); label the strip width as h and its height as approximately f(x); show the equation F(x+h) − F(x) ≈ f(x)·h beneath — student should see that the derivative of the accumulated area is the height of the curve at the leading edge] -->
+![Diagram illustrating FTC Part 1 ](images/05-integration-fig-02.png)
+*Figure 5.2 — Diagram illustrating FTC Part 1 *
 
 ---
 
@@ -103,7 +105,8 @@ That's the $21.33$ the Riemann sums were converging toward. No sum, no limit cal
 
 The FTC turns a problem in approximation and limits into a problem in finding antiderivatives. That is the trade it makes: effortless computation for anything with a known antiderivative, silence on everything without one.
 
-<!-- → [INFOGRAPHIC: two-column diagram contrasting the two routes to ∫₀⁴ x² dx — left column labeled "Definition (Riemann sum)": shows the sum formula, requires knowing Σi² = n(n+1)(2n+1)/6, shows limit calculation, arrives at 64/3; right column labeled "FTC (antiderivative)": shows F(x) = x³/3, evaluates F(4) − F(0) = 64/3 − 0 in two steps — the visual argument is that both columns reach the same answer, but the right column is dramatically shorter] -->
+![Two-column diagram contrasting the two routes to ∫₀⁴](images/05-integration-fig-03.png)
+*Figure 5.3 — Two-column diagram contrasting the two routes to ∫₀⁴*
 
 ---
 
@@ -135,7 +138,14 @@ Linearity carries over cleanly:
 
 $$\int [c \cdot f(x) + d \cdot g(x)] \, dx = c \int f(x) \, dx + d \int g(x) \, dx$$
 
-<!-- → [TABLE: two-column reference card of basic antiderivatives — left column: integrand f(x); right column: antiderivative F(x) + C; rows: xⁿ (n≠−1) → xⁿ⁺¹/(n+1)+C; x⁻¹ → ln|x|+C; eˣ → eˣ+C; cos x → sin x+C; sin x → −cos x+C; 1/(1+x²) → arctan x+C — pair each row with the corresponding derivative rule it reverses, shown in a light third column, so the student sees the table as a mirror image of the derivative table from Chapter 3] -->
+| integrand f(x) |
+| --- |
+| xⁿ (n≠−1) → xⁿ⁺¹ |
+| x⁻¹ → ln/x/+C |
+| eˣ → eˣ+C |
+| cos x → sin x+C |
+| sin x → −cos x+C |
+| 1 |
 
 Constants factor out; sums split. What doesn't carry over is products. There is no formula like $\int f(x) g(x) \, dx = (\int f) \cdot (\int g)$. Products are genuinely harder to integrate than to differentiate — the product rule of differentiation has an integration analog, but it's called integration by parts and it belongs in the next chapter. For now, the rule to internalize is that you cannot distribute an integral across a product.
 
@@ -167,7 +177,8 @@ The limits converted from $x$-values to $u$-values. You don't substitute back at
 
 The substitution method's elegance is the same as the chain rule's: it handles an infinite family of compositions with a single pattern. Once you can recognize $g'(x) \, dx$ hiding in an integrand and identify the matching $u = g(x)$, an enormous range of integrals collapses to basic forms. The skill is in the recognition.
 
-<!-- → [INFOGRAPHIC: step-by-step flowchart for u-substitution — box 1: "Identify inner function u = g(x)"; box 2: "Compute du = g′(x) dx"; box 3: "Rewrite integrand entirely in terms of u and du"; box 4a (indefinite): "Integrate in u, then back-substitute u = g(x)"; box 4b (definite): "Convert limits: x=a → u=g(a), x=b → u=g(b); integrate in u; do NOT back-substitute" — show the ∫ 2x cos(x²) dx example flowing through boxes 1–4a alongside the flowchart] -->
+![Step-by-step flowchart for u-substitution ](images/05-integration-fig-04.png)
+*Figure 5.4 — Step-by-step flowchart for u-substitution *
 
 ---
 
@@ -179,7 +190,8 @@ When $f(x) \geq 0$ on $[a, b]$, the definite integral $\int_a^b f(x) \, dx$ is t
 
 When $f$ dips below zero, the rectangles in the negative region have negative heights, and the integral counts negative area there — the net signed area, with regions above the axis positive and regions below negative. If you want the total geometric area (unsigned), you integrate $|f(x)|$ instead.
 
-<!-- → [IMAGE: signed area diagram for a function that crosses the x-axis — plot a curve that is positive on [a, c] and negative on [c, b]; shade the positive region above the axis in one color labeled "+A₁"; shade the negative region below in a contrasting color labeled "−A₂"; show the equation ∫ₐᵇ f dx = A₁ − A₂ (net signed area) vs ∫ₐᵇ |f| dx = A₁ + A₂ (total geometric area); label which quantity the definite integral computes by default] -->
+![Signed area diagram for a function that crosses](images/05-integration-fig-05.png)
+*Figure 5.5 — Signed area diagram for a function that crosses*
 
 When $f$ is velocity, the integral is displacement. When $f$ is a force, the integral against distance is work. When $f$ is a density (mass per unit length, charge per unit area), the integral is the total mass or charge. When $f$ is a rate of cash flow, the integral is total accumulated value. All of these are the same mathematical object seen in different physical contexts. The Riemann sum is always: break the quantity into small pieces, add them up, take the limit. The interpretation changes; the mathematics doesn't.
 
@@ -235,7 +247,8 @@ $$\int_0^1 v(t) \, dt = 18 - 6 \int_0^1 e^{-100(t - 0.5)^2} \, dt$$
 
 The remaining integral has no elementary antiderivative — the Gaussian again, rescaled and shifted. Numerical integration with a modest number of subintervals gives approximately $0.177$, so the total distance is $18 - 6(0.177) \approx 16.94$ miles.
 
-<!-- → [CHART: plot of the two cyclist velocity profiles on the same axes from t=0 to t=1 — curve 1: v(t) = 18 + 5sin(2πt), oscillating gently above and below 18 mph, labeled "sinusoidal profile — net area = 18 miles"; curve 2: v(t) = 18 − 6·exp(−100(t−0.5)²), showing a sharp Gaussian dip to ~12 mph centered at t=0.5, labeled "Gaussian hill profile — net area ≈ 16.94 miles"; shade the area under each curve to make the accumulated distance visually obvious; mark the dip's depth and location on curve 2] -->
+![Plot of the two cyclist velocity profiles on](images/05-integration-fig-06.png)
+*Figure 5.6 — Plot of the two cyclist velocity profiles on*
 
 The FTC answered the first version exactly. It reduced the second version to a number we compute numerically. Both routes go through the same concept: the integral is accumulated velocity, the calculation method adapts to what's available.
 
@@ -285,3 +298,61 @@ Who was Bernhard Riemann, and how does the Riemann integral connect to the integ
 - Ask it about Riemann's other contributions — Riemann surfaces, the Riemann zeta function, Riemannian geometry — and which one led to general relativity.
 
 What changes? What gets better? What gets worse?
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 5.1 — Panels showing Riemann sum convergence for ∫₀⁴ x²
+
+Create a standalone D3 v7 HTML file for Figure Panels showing Riemann sum convergence for ∫₀⁴ x². Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: side-by-side panels showing Riemann sum convergence for ∫₀⁴ x² dx — left panel: n=4 right-endpoint rectangles sitting above the parabola curve, with total shaded area visibly larger than the area under the curve; right panel: n=20 right-endpoint rectangles, noticeably tighter fit; label S₄ = 30 and exact = 64/3 ≈ 21.33 on the respective panels — student should see that the rectangles shrink toward the curve as n grows. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/05-integration-fig-01.html`
+
+---
+
+### Figure 5.2 — Diagram illustrating FTC Part 1 
+
+Create a standalone D3 v7 HTML file for Figure Diagram illustrating FTC Part 1 . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: diagram illustrating FTC Part 1 — plot a positive curve f(t) above the t-axis; shade the area under f from a to x in one color to represent F(x); shade the thin additional strip from x to x+h in a contrasting color to represent F(x+h) − F(x); label the strip width as h and its height as approximately f(x); show the equation F(x+h) − F(x) ≈ f(x)·h beneath — student should see that the derivative of the accumulated area is the height of the curve at the leading edge. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/05-integration-fig-02.html`
+
+---
+
+### Figure 5.3 — Two-column diagram contrasting the two routes to ∫₀⁴
+
+Create a standalone D3 v7 HTML file for Figure Two-column diagram contrasting the two routes to ∫₀⁴. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: two-column diagram contrasting the two routes to ∫₀⁴ x² dx — left column labeled "Definition (Riemann sum)": shows the sum formula, requires knowing Σi² = n(n+1)(2n+1)/6, shows limit calculation, arrives at 64/3; right column labeled "FTC (antiderivative)": shows F(x) = x³/3, evaluates F(4) − F(0) = 64/3 − 0 in two steps — the visual argument is that both columns reach the same answer, but the right column is dramatically shorter. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/05-integration-fig-03.html`
+
+---
+
+### Figure 5.4 — Step-by-step flowchart for u-substitution 
+
+Create a standalone D3 v7 HTML file for Figure Step-by-step flowchart for u-substitution . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: step-by-step flowchart for u-substitution — box 1: "Identify inner function u = g(x)"; box 2: "Compute du = g′(x) dx"; box 3: "Rewrite integrand entirely in terms of u and du"; box 4a (indefinite): "Integrate in u, then back-substitute u = g(x)"; box 4b (definite): "Convert limits: x=a → u=g(a), x=b → u=g(b); integrate in u; do NOT back-substitute" — show the ∫ 2x cos(x²) dx example flowing through boxes 1–4a alongside the flowchart. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/05-integration-fig-04.html`
+
+---
+
+### Figure 5.5 — Signed area diagram for a function that crosses
+
+Create a standalone D3 v7 HTML file for Figure Signed area diagram for a function that crosses. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: signed area diagram for a function that crosses the x-axis — plot a curve that is positive on [a, c] and negative on [c, b]; shade the positive region above the axis in one color labeled "+A₁"; shade the negative region below in a contrasting color labeled "−A₂"; show the equation ∫ₐᵇ f dx = A₁ − A₂ (net signed area) vs ∫ₐᵇ |f| dx = A₁ + A₂ (total geometric area); label which quantity the definite integral computes by default. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/05-integration-fig-05.html`
+
+---
+
+### Figure 5.6 — Plot of the two cyclist velocity profiles on
+
+Create a standalone D3 v7 HTML file for Figure Plot of the two cyclist velocity profiles on. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: plot of the two cyclist velocity profiles on the same axes from t=0 to t=1 — curve 1: v(t) = 18 + 5sin(2πt), oscillating gently above and below 18 mph, labeled "sinusoidal profile — net area = 18 miles"; curve 2: v(t) = 18 − 6·exp(−100(t−0.5)²), showing a sharp Gaussian dip to ~12 mph centered at t=0.5, labeled "Gaussian hill profile — net area ≈ 16.94 miles"; shade the area under each curve to make the accumulated distance visually obvious; mark the dip's depth and location on curve 2. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/05-integration-fig-06.html`
