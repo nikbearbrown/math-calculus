@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2560" width="1600" height="2560" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision">
+  <g id="background"><rect x="0" y="0" width="1600" height="2560" fill="#F5C518"/></g>
+  <g id="symbol-fragments" transform="rotate(7, 800, 850)">
+    <polygon points="290,362 198,301 240,180 374,152 449,235 376,358" fill="#111111"/>
+    <polygon points="645,331 593,409 501,375 447,311 476,242 577,181 654,262" fill="#111111"/>
+    <polygon points="817,364 754,393 712,330 711,273 727,209 824,220 863,258 855,322" fill="#111111"/>
+    <polygon points="353,574 299,681 163,647 118,517 225,426 327,497" fill="#111111"/>
+    <polygon points="381,594 440,471 526,464 625,476 644,576 577,640 461,661" fill="#D62B2B"/>
+    <polygon points="823,634 721,660 660,548 719,481 775,401 855,468 906,542 934,632" fill="#111111"/>
+    <polygon points="364,755 321,839 243,793 201,737 263,690 348,681" fill="#111111"/>
+    <polygon points="429,872 436,751 512,706 615,676 671,758 640,865 541,946" fill="#111111"/>
+    <polygon points="784,834 696,801 710,737 732,682 797,664 836,700 855,761 839,803" fill="#111111"/>
+  </g>
+  <g id="title-letterforms">
+    <text x="120" y="1510" font-family="Arial Black, Arial, sans-serif" font-size="250" font-weight="900" letter-spacing="0" fill="#D62B2B" textLength="1300" lengthAdjust="spacingAndGlyphs">CALCULUS</text>
+  </g>
+</svg>
