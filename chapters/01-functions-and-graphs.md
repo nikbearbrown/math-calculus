@@ -1,4 +1,11 @@
 # Chapter 1 — Functions and Graphs
+
+## TL;DR
+
+- How a scale that hides a factor of 350 inside two digits forces you to understand what a function actually does.
+- The chapter moves through What a function actually is, The families, The trigonometric family, unit-circle style, Inverses, exponentials, and logarithms, and related ideas.
+- Read it for the main argument, the vocabulary it introduces, and the practical judgment it asks you to develop.
+
 *How a scale that hides a factor of 350 inside two digits forces you to understand what a function actually does.*
 
 ![Horizontal number line showing 7](images/01-functions-and-graphs-fig-01.png)
@@ -261,9 +268,12 @@ The following exercises are designed to be worked with a large language model as
 
 ---
 
-## AI Wayback Machine
-
+##  AI Wayback Machine
 The ideas in this chapter didn't appear from nowhere. **Sophie Germain** taught herself calculus during the French Revolution by reading Lagrange and Euler — sometimes corresponding with Gauss under the male pseudonym M. Le Blanc. Her work on Fermat's Last Theorem and on elasticity theory earned her a Paris Academy prize that she could not receive in person because she was a woman.
+
+![Sophie Germain](../images/sophie-germain-66o.png)
+
+*Puppet Art by [Nik Bear Brown](https://www.nikbearbrown.com/).*
 
 **Run this:**
 

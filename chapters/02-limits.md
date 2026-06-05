@@ -1,4 +1,11 @@
 # Chapter 2 — Limits
+
+## TL;DR
+
+- This chapter gives a working overview of Limits, focusing on the ideas a reader needs before moving to the next chapter.
+- The chapter moves through What a limit actually is, Why the concept had to be invented, When limits fail, How to compute limits, and related ideas.
+- Read it for the main argument, the vocabulary it introduces, and the practical judgment it asks you to develop.
+
 *Approaching Without Arriving.*
 
 There is a speed you cannot reach.
@@ -239,8 +246,7 @@ The following exercises are designed for working interactively with an AI assist
 
 ---
 
-## AI Wayback Machine
-
+##  AI Wayback Machine
 The ideas in this chapter didn't appear from nowhere. **Augustin-Louis Cauchy** wrote *Cours d'Analyse* in 1821 — the textbook that put limits on rigorous footing for the first time, replacing Newton's and Leibniz's infinitesimals with an epsilon-delta framework. Modern calculus rigor begins with him.
 
 **Run this:**

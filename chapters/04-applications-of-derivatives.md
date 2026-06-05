@@ -1,4 +1,11 @@
 # Chapter 4 — Applications of Derivatives
+
+## TL;DR
+
+- What the derivative is actually for — and why a camera operator is solving calculus problems with their wrists.
+- The chapter moves through Related rates: two clocks, one equation, Linear approximation: the tangent line earns its keep, Critical points: where the derivative goes quiet, The Mean Value Theorem: averaging and instantaneity, and related ideas.
+- Read it for the main argument, the vocabulary it introduces, and the practical judgment it asks you to develop.
+
 *What the derivative is actually for — and why a camera operator is solving calculus problems with their wrists.*
 
 ![Rocket-and-camera geometry ](images/04-applications-of-derivatives-fig-01.png)
@@ -265,8 +272,7 @@ The following exercises are designed to be worked with a large language model as
 
 ---
 
-## AI Wayback Machine
-
+##  AI Wayback Machine
 The ideas in this chapter didn't appear from nowhere. **Pierre de Fermat** developed methods for finding tangent lines and optimization extrema in the 1630s — predating Newton and Leibniz by a generation. His "method of adequality" is, in modern eyes, the derivative test with a different vocabulary.
 
 **Run this:**

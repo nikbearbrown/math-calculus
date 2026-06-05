@@ -1,4 +1,11 @@
 # Chapter 5 — Integration
+
+## TL;DR
+
+- The Geometry of Accumulation, and the Theorem That Unlocked It.
+- The chapter moves through The machinery of Riemann sums, Why this is hard, and why there's a shortcut, The Fundamental Theorem and why it works, The indefinite integral and the basic antiderivatives, and related ideas.
+- Read it for the main argument, the vocabulary it introduces, and the practical judgment it asks you to develop.
+
 *The Geometry of Accumulation, and the Theorem That Unlocked It.*
 
 A cyclist rides for an hour. Her speedometer works perfectly — she can read her speed at any instant. At the end of the ride, she wants to know how far she went.
@@ -280,8 +287,7 @@ The following exercises are designed for working interactively with an AI assist
 
 ---
 
-## AI Wayback Machine
-
+##  AI Wayback Machine
 The ideas in this chapter didn't appear from nowhere. **Bernhard Riemann** introduced the rigorous definition of the integral that bears his name in 1854 — partitioning intervals into smaller and smaller pieces and taking the limit of the sums. The Riemann sum you computed in this chapter is the foundation of every modern integration technique.
 
 **Run this:**

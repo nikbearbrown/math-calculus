@@ -1,5 +1,12 @@
 # Chapter 6 — Applications of Integration
 
+
+## TL;DR
+
+- What to do once you know how to add up infinitely many infinitely thin things.
+- The chapter moves through A single question, Area between curves, Volume: slicing into disks, Volume: slicing into shells, and related ideas.
+- Read it for the main argument, the vocabulary it introduces, and the practical judgment it asks you to develop.
+
 *What to do once you know how to add up infinitely many infinitely thin things.*
 
 ---
@@ -294,9 +301,12 @@ The following exercises are designed to be worked with a large language model as
 
 ---
 
-## AI Wayback Machine
-
+##  AI Wayback Machine
 The ideas in this chapter didn't appear from nowhere. **Émilie du Châtelet** translated Newton's *Principia* into French in the 1740s — adding her own commentary on the calculus of motion and area that introduced the concept of *kinetic energy* (mv²) into Continental physics. The work she did made Newton applicable to real engineering problems.
+
+![Émilie du Châtelet](../images/emilie-du-chatelet-d8i.png)
+
+*Puppet Art by [Nik Bear Brown](https://www.nikbearbrown.com/).*
 
 **Run this:**
 

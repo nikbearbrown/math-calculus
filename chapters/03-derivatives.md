@@ -1,4 +1,11 @@
 # Chapter 3 — Derivatives
+
+## TL;DR
+
+- Instantaneous rates of change — and why a 270 mph car is a calculus textbook in motion.
+- The chapter moves through The derivative as a limit, When the derivative fails to exist, The rules: from limits to algebra, The chain rule: composition done right, and related ideas.
+- Read it for the main argument, the vocabulary it introduces, and the practical judgment it asks you to develop.
+
 *Instantaneous rates of change — and why a 270 mph car is a calculus textbook in motion.*
 
 In 2014, the Hennessey Venom GT accelerated from 0 to 200 mph in 14.51 seconds. Its top speed, recorded the same year on the Kennedy Space Center shuttle landing facility runway, was 270.49 mph.
@@ -230,8 +237,7 @@ The following exercises are designed to be worked with a large language model as
 
 ---
 
-## AI Wayback Machine
-
+##  AI Wayback Machine
 The ideas in this chapter didn't appear from nowhere. **Maria Gaetana Agnesi** wrote *Instituzioni analitiche* in 1748 — the first textbook to cover both differential and integral calculus in a unified system. The curve called the "witch of Agnesi" is a mistranslation; the Italian was "averse" or "turning," not "witch."
 
 **Run this:**
